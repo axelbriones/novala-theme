@@ -118,4 +118,84 @@ if (function_exists('acf_add_local_field_group')):
         ),
     ));
 
+    // Global ACF Flexible Content for Components
+    acf_add_local_field_group(array(
+        'key' => 'group_global_components',
+        'title' => 'Global Reusable Components',
+        'fields' => array(
+            array(
+                'key' => 'field_global_components_flex',
+                'label' => 'Components',
+                'name' => 'global_components',
+                'type' => 'flexible_content',
+                'instructions' => 'Add components here that you want to reuse across multiple pages via shortcode or function.',
+                'button_label' => 'Add Component',
+                'layouts' => array(
+                    'layout_hero' => array(
+                        'key' => 'layout_hero',
+                        'name' => 'hero',
+                        'label' => 'Hero Section',
+                        'display' => 'block',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_hero_title',
+                                'label' => 'Title',
+                                'name' => 'title',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'field_hero_subtitle',
+                                'label' => 'Subtitle',
+                                'name' => 'subtitle',
+                                'type' => 'textarea',
+                            ),
+                            array(
+                                'key' => 'field_hero_image',
+                                'label' => 'Background Image',
+                                'name' => 'image',
+                                'type' => 'image',
+                                'return_format' => 'url',
+                            ),
+                        ),
+                    ),
+                    'layout_cta' => array(
+                        'key' => 'layout_cta',
+                        'name' => 'cta',
+                        'label' => 'Call to Action',
+                        'display' => 'block',
+                        'sub_fields' => array(
+                            array(
+                                'key' => 'field_cta_title',
+                                'label' => 'Title',
+                                'name' => 'title',
+                                'type' => 'text',
+                            ),
+                            array(
+                                'key' => 'field_cta_text',
+                                'label' => 'Text',
+                                'name' => 'text',
+                                'type' => 'textarea',
+                            ),
+                            array(
+                                'key' => 'field_cta_link',
+                                'label' => 'Link',
+                                'name' => 'link',
+                                'type' => 'link',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'theme-components',
+                ),
+            ),
+        ),
+    ));
+
 endif;

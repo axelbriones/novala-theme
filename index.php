@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
-<!-- Main Content -->
-<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12">
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 pt-[88px]">
 <!-- Header -->
 <header class="text-center mb-16">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4">The Buzz</h1>
