@@ -138,6 +138,9 @@
         }
         .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
+        .editorial-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
+        .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.8); }
+        .soft-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
 </style>
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
