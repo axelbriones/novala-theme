@@ -143,6 +143,10 @@
         .soft-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
         .shadow-ambient { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.08); }
         .shadow-ambient-hover:hover { box-shadow: 0 30px 60px -15px rgba(122, 85, 0, 0.12); }
+        .glass-card { background: rgba(252, 249, 248, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(212, 196, 175, 0.3); }
+        .golden-glow { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); }
+        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .ambient-glow { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(254, 187, 16, 0.1) 0%, rgba(252, 249, 248, 0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
 </style>
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
