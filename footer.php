@@ -41,14 +41,14 @@
 <div>
 <h5 class="font-label-md text-label-md font-bold mb-8 uppercase tracking-[0.15em] text-on-tertiary-fixed">Engage</h5>
 <address class="not-italic space-y-4 text-on-tertiary-fixed-variant font-body-md">
-<p>Hakati Business Center,<br/>1st Floor, Shop F35,<br/>Mfangano Street, Nairobi, Kenya</p>
+<p><?php echo function_exists('get_field') && get_field('contact_address', 'option') ? get_field('contact_address', 'option') : 'Hakati Business Center,<br/>1st Floor, Shop F35,<br/>Mfangano Street, Nairobi, Kenya'; ?></p>
 <p class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-lg">mail</span>
-                        engage@novalabeeworks.xyz
+                        <?php echo function_exists('get_field') && get_field('contact_email', 'option') ? get_field('contact_email', 'option') : 'engage@novalabeeworks.xyz'; ?>
                     </p>
 <p class="flex items-center gap-2">
 <span class="material-symbols-outlined text-primary text-lg">call</span>
-                        +254 721 692895
+                        <?php echo function_exists('get_field') && get_field('contact_phone', 'option') ? get_field('contact_phone', 'option') : '+254 721 692895'; ?>
                     </p>
 </address>
 </div>

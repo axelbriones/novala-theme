@@ -131,9 +131,16 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        .ambient-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
+        .hover-ambient-shadow:hover { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); transform: translateY(-2px); transition: all 0.3s ease; }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(27, 28, 28, 0.2), rgba(27, 28, 28, 0.6));
+        }
+        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
 </style>
 </head>
-<body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden"); ?>>
+<body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
 <?php wp_body_open(); ?>
 <!-- TopNavBar -->
 <header class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm">
