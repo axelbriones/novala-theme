@@ -141,6 +141,8 @@
         .editorial-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
         .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.8); }
         .soft-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
+        .shadow-ambient { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.08); }
+        .shadow-ambient-hover:hover { box-shadow: 0 30px 60px -15px rgba(122, 85, 0, 0.12); }
 </style>
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
