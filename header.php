@@ -151,24 +151,32 @@
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
 <?php wp_body_open(); ?>
-<!-- TopNavBar -->
-<header class="sticky top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm">
-<nav class="flex justify-between items-center px-margin-desktop py-4 max-w-container-max mx-auto">
-<div class="flex items-center gap-2">
-<a href="<?php echo esc_url(home_url('/')); ?>" class="font-headline-sm text-headline-sm font-bold tracking-tight text-on-surface">NOVALA Bee Works</a>
+<!-- TopNavBar Component -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto backdrop-blur-md bg-surface/70 text-primary font-body-md text-body-md flat no shadows cursor-pointer active:opacity-70 transition-colors duration-300">
+<!-- Brand Logo -->
+<div class="font-headline-sm text-headline-sm text-primary tracking-tight">
+    <a href="<?php echo esc_url(home_url('/')); ?>">Novala Bee Works</a>
 </div>
-<div class="hidden md:flex items-center gap-8">
-<a class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300" href="#">Shop</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Sustainability</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Our Story</a>
-<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Buzz</a>
-</div>
-<div class="flex items-center gap-6 text-on-surface-variant">
-<button class="material-symbols-outlined hover:text-primary transition-colors">search</button>
-<div class="relative">
-<span class="material-symbols-outlined hover:text-primary transition-colors" data-icon="shopping_cart">shopping_cart</span>
-<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
-</div>
-</div>
+<!-- Navigation Links (Desktop) -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Pure Honey</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Infused</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Seeds</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Hives</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Our Story</a>
 </nav>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-4">
+<button aria-label="Shopping Cart" class="text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+</button>
+<button aria-label="Person" class="text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</button>
+<!-- Mobile Menu Toggle (Visible only on small screens) -->
+<button aria-label="Menu" class="md:hidden text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
 </header>
