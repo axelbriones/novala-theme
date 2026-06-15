@@ -111,6 +111,26 @@
         .soft-elevation:hover {
             box-shadow: 0 20px 40px -12px rgba(122, 85, 0, 0.25);
         }
+        .icon-fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .hover-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); /* Warm ambient shadow */
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 </style>
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden"); ?>>
