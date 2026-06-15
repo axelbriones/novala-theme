@@ -10,6 +10,26 @@ define('NOVARA_THEME_URI', get_template_directory_uri());
 require_once NOVARA_THEME_DIR . '/inc/helpers.php';
 require_once NOVARA_THEME_DIR . '/inc/components.php';
 
+// Add Tailwind classes to WooCommerce checkout fields
+function novara_wc_checkout_fields_styling( $fields ) {
+    $tailwind_input_classes = array('w-full', 'bg-surface-container-lowest', 'border', 'border-outline-variant', 'text-on-surface', 'font-body-md', 'text-body-md', 'px-4', 'py-3', 'rounded-DEFAULT', 'transition-colors', 'duration-200', 'focus:outline-none', 'focus:border-primary', 'focus:ring-1', 'focus:ring-primary');
+
+    foreach ( $fields as $fieldset_key => $fieldset ) {
+        foreach ( $fieldset as $field_key => $field ) {
+            // Label classes
+            $fields[ $fieldset_key ][ $field_key ]['label_class'] = array('block', 'font-label-md', 'text-label-md', 'text-on-surface-variant', 'mb-2');
+
+            // Input classes
+            $fields[ $fieldset_key ][ $field_key ]['input_class'] = $tailwind_input_classes;
+
+            // Field wrapper (p tag) classes
+            $fields[ $fieldset_key ][ $field_key ]['class'][] = 'mb-6';
+        }
+    }
+    return $fields;
+}
+add_filter( 'woocommerce_checkout_fields', 'novara_wc_checkout_fields_styling', 9999 );
+
 function novara_theme_setup() {
     add_theme_support('title-tag');
     add_theme_support('woocommerce');

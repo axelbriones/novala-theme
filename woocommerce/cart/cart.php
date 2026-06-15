@@ -6,101 +6,122 @@
 <p class="font-body-lg text-body-lg text-on-surface-variant">2 items crafted for the conscious connoisseur.</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Cart Items -->
+<!-- Cart Items (Dynamic) -->
 <div class="lg:col-span-8 flex flex-col gap-8">
-<!-- Item 1 -->
-<div class="flex flex-col sm:flex-row gap-6 p-6 bg-surface-container-lowest rounded-xl ambient-shadow-hover transition-all">
-<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 relative">
-<img alt="Jar of pure wildflower honey" class="w-full h-full object-cover" data-alt="A beautifully styled jar of golden wildflower honey sitting on a textured rustic wooden table, bathed in soft, warm golden hour sunlight. The lighting creates a luminous glow through the honey, emphasizing its premium artisanal quality. The scene is shot from a slight angle with shallow depth of field, highlighting the Novala Bee Works label and a wooden honey dipper resting nearby. The aesthetic is organic, modern, and sun-drenched, using a palette of warm cream, deep amber, and natural wood tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByKmilhAJ5y4ZdK2fCZXpujyxJot0iZ_i8SBC16NKhZySbt_r7-hHG6MScQSJfB08_pUmpamH6jVAqz08bpnJaav4CGLr2cXxZFmP_bN66IF4t8vOAQ_Vzi6jM3LCC-Py5p1NaYppf_0RiUkBfR_O6RM_cmpgBXTNMmL3SI8Z4QWGpvrwMkU4QfZD2PYAkYYVN27eKUQFuuXgoHa3T9ZFUXZ6OeXwn7t3Uu6_xgbY4cT4ncW4Is-HaGW9izpTRxyT8TazMSC_UkV0"/>
+    <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+        <?php do_action( 'woocommerce_before_cart_table' ); ?>
+
+        <?php
+        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+            $_product   = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
+            $product_id = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
+
+            if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
+                $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
+                ?>
+                <div class="woocommerce-cart-form__cart-item flex flex-col sm:flex-row gap-6 p-6 bg-surface-container-lowest rounded-xl ambient-shadow-hover transition-all mb-8">
+                    <div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 relative">
+                        <?php
+                        $thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image('woocommerce_thumbnail', ['class' => 'w-full h-full object-cover']), $cart_item, $cart_item_key );
+                        if ( ! $product_permalink ) {
+                            echo $thumbnail; // PHPCS: XSS ok.
+                        } else {
+                            printf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $thumbnail ); // PHPCS: XSS ok.
+                        }
+                        ?>
+                    </div>
+                    <div class="flex flex-col justify-between flex-grow">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-headline-sm text-headline-sm text-primary mb-1">
+                                    <?php
+                                    if ( ! $product_permalink ) {
+                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
+                                    } else {
+                                        echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', esc_url( $product_permalink ), $_product->get_name() ), $cart_item, $cart_item_key ) );
+                                    }
+
+                                    do_action( 'woocommerce_after_cart_item_name', $cart_item, $cart_item_key );
+
+                                    // Meta data.
+                                    echo wc_get_formatted_cart_item_data( $cart_item ); // PHPCS: XSS ok.
+                                    ?>
+                                </h3>
+                            </div>
+                            <?php
+                                echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                                    'woocommerce_cart_item_remove_link',
+                                    sprintf(
+                                        '<a href="%s" class="text-tertiary hover:text-error transition-colors" aria-label="%s" data-product_id="%s" data-product_sku="%s"><span class="material-symbols-outlined" data-icon="delete">delete</span></a>',
+                                        esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
+                                        esc_html__( 'Remove this item', 'woocommerce' ),
+                                        esc_attr( $product_id ),
+                                        esc_attr( $_product->get_sku() )
+                                    ),
+                                    $cart_item_key
+                                );
+                            ?>
+                        </div>
+                        <div class="flex justify-between items-end mt-4 sm:mt-0">
+                            <div class="flex items-center border border-outline-variant rounded-full bg-surface overflow-hidden">
+                                <?php
+                                if ( $_product->is_sold_individually() ) {
+                                    $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
+                                } else {
+                                    $product_quantity = woocommerce_quantity_input(
+                                        array(
+                                            'input_name'   => "cart[{$cart_item_key}][qty]",
+                                            'input_value'  => $cart_item['quantity'],
+                                            'max_value'    => $_product->get_max_purchase_quantity(),
+                                            'min_value'    => '0',
+                                            'product_name' => $_product->get_name(),
+                                            'classes'      => apply_filters( 'woocommerce_quantity_input_classes', array( 'input-text', 'qty', 'text', 'font-label-md', 'text-label-md', 'w-12', 'text-center', 'text-on-surface', 'bg-transparent', 'border-none', 'focus:ring-0', 'p-0' ), $_product ),
+                                        ),
+                                        $_product,
+                                        false
+                                    );
+                                }
+                                echo apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
+                                ?>
+                            </div>
+                            <span class="font-headline-sm text-headline-sm text-primary">
+                                <?php
+                                    echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ); // PHPCS: XSS ok.
+                                ?>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <?php
+            }
+        }
+        ?>
+
+        <?php do_action( 'woocommerce_cart_contents' ); ?>
+
+        <div class="flex justify-end mt-4">
+            <button type="submit" class="bg-surface-container text-on-surface-variant font-label-md text-label-md px-6 py-3 rounded-full hover:bg-surface-variant transition-colors" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+            <?php do_action( 'woocommerce_cart_actions' ); ?>
+            <?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
+        </div>
+
+        <?php do_action( 'woocommerce_after_cart_table' ); ?>
+    </form>
 </div>
-<div class="flex flex-col justify-between flex-grow">
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Pure Wildflower Honey</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">12 oz \u2022 Raw &amp; Unfiltered</p>
-</div>
-<button aria-label="Remove item" class="text-tertiary hover:text-error transition-colors">
-<span class="material-symbols-outlined" data-icon="delete">delete</span>
-</button>
-</div>
-<div class="flex justify-between items-end mt-4 sm:mt-0">
-<div class="flex items-center border border-outline-variant rounded-full bg-surface">
-<button class="w-8 h-8 flex items-center justify-center text-primary hover:bg-surface-container-low rounded-l-full transition-colors">
-<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
-</button>
-<span class="font-label-md text-label-md w-8 text-center text-on-surface">1</span>
-<button class="w-8 h-8 flex items-center justify-center text-primary hover:bg-surface-container-low rounded-r-full transition-colors">
-<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
-</button>
-</div>
-<span class="font-headline-sm text-headline-sm text-primary">$24.00</span>
-</div>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="flex flex-col sm:flex-row gap-6 p-6 bg-surface-container-lowest rounded-xl ambient-shadow-hover transition-all">
-<div class="w-full sm:w-32 h-32 rounded-lg overflow-hidden bg-surface-container-low shrink-0 relative">
-<img alt="Honey roasted seeds in a bowl" class="w-full h-full object-cover" data-alt="A minimalist ceramic bowl filled with an artisanal mix of honey-roasted seeds and nuts, set against a smooth, warm cream background. The lighting is soft and diffused, casting gentle, ambient shadows that give the scene a high-end editorial feel. A few stray seeds are artistically scattered around the base of the bowl. The color palette focuses on earthy browns, golden ambers, and clean whites, emphasizing an organic, premium lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-nZER7hD_BJleiA6QCRLgGLaLv8H7LDTO8O0Od75jkeGkkWeXDrmfoickWOttVuP3GxOrldH_ZmfLHrJPH6EiDDEAe0J_kmneUfT496tgF-Cn_I0I7qfMKQxcpmnA8tg9ldWezeqnFFDjT_QBk0lh51zVbBMF6EKETTOzqPpbxlmKI9aQggsX4Bydo3evNtfCG1oC7JhmAHNR8GMn9rsXeMhVLbTcuZrIdWrv5G0gLbX9WRMGaOQWU6GECOdbMQjB2tmIyt3VNQ4"/>
-</div>
-<div class="flex flex-col justify-between flex-grow">
-<div class="flex justify-between items-start">
-<div>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-1">Honey Roasted Seeds</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">8 oz \u2022 Small Batch</p>
-</div>
-<button aria-label="Remove item" class="text-tertiary hover:text-error transition-colors">
-<span class="material-symbols-outlined" data-icon="delete">delete</span>
-</button>
-</div>
-<div class="flex justify-between items-end mt-4 sm:mt-0">
-<div class="flex items-center border border-outline-variant rounded-full bg-surface">
-<button class="w-8 h-8 flex items-center justify-center text-primary hover:bg-surface-container-low rounded-l-full transition-colors">
-<span class="material-symbols-outlined text-[18px]" data-icon="remove">remove</span>
-</button>
-<span class="font-label-md text-label-md w-8 text-center text-on-surface">2</span>
-<button class="w-8 h-8 flex items-center justify-center text-primary hover:bg-surface-container-low rounded-r-full transition-colors">
-<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
-</button>
-</div>
-<span class="font-headline-sm text-headline-sm text-primary">$36.00</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Order Summary -->
+
+<!-- Order Summary (Dynamic) -->
 <div class="lg:col-span-4 mt-8 lg:mt-0">
-<div class="bg-surface-container-lowest rounded-xl p-8 ambient-shadow sticky top-32">
-<h2 class="font-headline-sm text-headline-sm text-primary mb-6 border-b border-surface-variant pb-4">Order Summary</h2>
-<div class="flex flex-col gap-4 font-body-md text-body-md text-on-surface-variant mb-6">
-<div class="flex justify-between">
-<span>Subtotal</span>
-<span class="text-on-surface">$60.00</span>
-</div>
-<div class="flex justify-between">
-<span>Estimated Shipping</span>
-<span class="text-on-surface">$8.50</span>
-</div>
-<div class="flex justify-between text-secondary">
-<span>Artisanal Discount</span>
-<span>-$5.00</span>
-</div>
-</div>
-<div class="border-t border-surface-variant pt-6 mb-8">
-<div class="flex justify-between items-center">
-<span class="font-headline-sm text-headline-sm text-primary">Total</span>
-<span class="font-headline-sm text-headline-sm text-primary">$63.50</span>
-</div>
-<p class="font-caption text-caption text-tertiary mt-2">Taxes calculated at checkout</p>
-</div>
-<button class="w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full hover:bg-surface-tint transition-colors ambient-shadow-hover flex items-center justify-center gap-2">
-                        Proceed to Checkout
-                        <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
-</button>
-<div class="mt-6 pt-6 border-t border-surface-variant flex items-center justify-center gap-2 text-tertiary">
-<span class="material-symbols-outlined text-[16px]" data-icon="lock">lock</span>
-<span class="font-caption text-caption">Secure, encrypted checkout</span>
-</div>
-</div>
+    <div class="cart-collaterals sticky top-32">
+        <?php
+            /**
+             * Cart collaterals hook.
+             *
+             * @hooked woocommerce_cross_sell_display
+             * @hooked woocommerce_cart_totals - 10
+             */
+            do_action( 'woocommerce_cart_collaterals' );
+        ?>
+    </div>
 </div>
 </div>
 </main>

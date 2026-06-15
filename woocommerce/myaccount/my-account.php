@@ -36,11 +36,15 @@
 </aside>
 <!-- Dashboard Canvas -->
 <div class="flex-grow space-y-10">
+<?php
+    $current_user = wp_get_current_user();
+    $first_name = $current_user->user_firstname ? $current_user->user_firstname : $current_user->display_name;
+?>
 <!-- Welcome Banner -->
 <section class="glass-panel soft-shadow rounded-xl p-8 relative overflow-hidden">
 <div class="absolute right-0 top-0 w-64 h-64 bg-primary-fixed opacity-20 rounded-full blur-3xl -mr-20 -mt-20"></div>
 <div class="relative z-10">
-<h1 class="font-display-lg text-display-lg text-primary mb-2">Welcome back, Eleanor.</h1>
+<h1 class="font-display-lg text-display-lg text-primary mb-2">Welcome back, <?php echo esc_html($first_name); ?>.</h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
                         From your dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.
                     </p>
@@ -89,7 +93,7 @@
 <section>
 <div class="flex justify-between items-end mb-6">
 <h2 class="font-headline-md text-headline-md text-primary">Recent Orders</h2>
-<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1" href="<?php echo esc_url( wc_get_endpoint_url( 'orders' ) ); ?>">
                         View All <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </a>
 </div>
@@ -106,45 +110,54 @@
 </tr>
 </thead>
 <tbody class="font-body-md text-body-md text-on-background">
-<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4 font-medium">#NBW-8932</td>
-<td class="px-6 py-4 text-on-surface-variant">Sep 28, 2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[16px] icon-fill">check_circle</span> Delivered
-                                        </span>
-</td>
-<td class="px-6 py-4 font-medium">$85.00</td>
-<td class="px-6 py-4 text-right">
-<button class="text-secondary hover:text-primary font-label-md text-label-md transition-colors">View</button>
-</td>
-</tr>
-<tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4 font-medium">#NBW-8710</td>
-<td class="px-6 py-4 text-on-surface-variant">Aug 15, 2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[16px] icon-fill">check_circle</span> Delivered
-                                        </span>
-</td>
-<td class="px-6 py-4 font-medium">$120.50</td>
-<td class="px-6 py-4 text-right">
-<button class="text-secondary hover:text-primary font-label-md text-label-md transition-colors">View</button>
-</td>
-</tr>
-<tr class="hover:bg-surface-container-low transition-colors">
-<td class="px-6 py-4 font-medium">#NBW-8405</td>
-<td class="px-6 py-4 text-on-surface-variant">Jun 02, 2023</td>
-<td class="px-6 py-4">
-<span class="inline-flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-[16px] icon-fill">check_circle</span> Delivered
-                                        </span>
-</td>
-<td class="px-6 py-4 font-medium">$45.00</td>
-<td class="px-6 py-4 text-right">
-<button class="text-secondary hover:text-primary font-label-md text-label-md transition-colors">View</button>
-</td>
-</tr>
+    <?php
+    $customer_orders = wc_get_orders( apply_filters( 'woocommerce_my_account_my_orders_query', array(
+        'customer' => get_current_user_id(),
+        'limit'    => 3,
+    ) ) );
+
+    if ( $customer_orders ) :
+        foreach ( $customer_orders as $customer_order ) :
+            $order      = wc_get_order( $customer_order );
+            $item_count = $order->get_item_count() - $order->get_item_count_refunded();
+            ?>
+            <tr class="border-b border-surface-variant hover:bg-surface-container-low transition-colors">
+                <td class="px-6 py-4 font-medium">
+                    <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>">
+                        #<?php echo esc_html( $order->get_order_number() ); ?>
+                    </a>
+                </td>
+                <td class="px-6 py-4 text-on-surface-variant">
+                    <time datetime="<?php echo esc_attr( $order->get_date_created()->date( 'c' ) ); ?>"><?php echo esc_html( wc_format_datetime( $order->get_date_created() ) ); ?></time>
+                </td>
+                <td class="px-6 py-4">
+                    <span class="inline-flex items-center gap-1 text-primary">
+                        <span class="material-symbols-outlined text-[16px] icon-fill">
+                            <?php echo $order->get_status() === 'completed' ? 'check_circle' : 'pending'; ?>
+                        </span>
+                        <?php echo esc_html( wc_get_order_status_name( $order->get_status() ) ); ?>
+                    </span>
+                </td>
+                <td class="px-6 py-4 font-medium">
+                    <?php
+                    /* translators: 1: formatted order total 2: total order items */
+                    echo wp_kses_post( sprintf( _n( '%1$s for %2$s item', '%1$s for %2$s items', $item_count, 'woocommerce' ), $order->get_formatted_order_total(), $item_count ) );
+                    ?>
+                </td>
+                <td class="px-6 py-4 text-right">
+                    <a href="<?php echo esc_url( $order->get_view_order_url() ); ?>" class="text-secondary hover:text-primary font-label-md text-label-md transition-colors">View</a>
+                </td>
+            </tr>
+            <?php
+        endforeach;
+    else :
+        ?>
+        <tr>
+            <td colspan="5" class="px-6 py-4 text-center text-on-surface-variant font-body-md">
+                You have no recent orders.
+            </td>
+        </tr>
+    <?php endif; ?>
 </tbody>
 </table>
 </div>
