@@ -142,4 +142,146 @@ if (function_exists('acf_add_local_field_group')):
         ),
     ));
 
+    // Page: Our Story
+    acf_add_local_field_group(array(
+        'key' => 'group_page_our_story',
+        'title' => 'Page Settings: Our Story',
+        'fields' => array(
+            array(
+                'key' => 'field_os_hero_tab',
+                'label' => 'Hero',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_os_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_os_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_os_intro_tab',
+                'label' => 'Introduction',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_os_intro_title',
+                'label' => 'Intro Title',
+                'name' => 'intro_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_os_intro_text',
+                'label' => 'Intro Text',
+                'name' => 'intro_text',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_os_impact_tab',
+                'label' => 'Impact Grid',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_os_impact_title',
+                'label' => 'Impact Title',
+                'name' => 'impact_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_os_impact_items',
+                'label' => 'Impact Items',
+                'name' => 'impact_items',
+                'type' => 'repeater',
+                'layout' => 'block',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_os_impact_icon',
+                        'label' => 'Material Icon Name',
+                        'name' => 'icon',
+                        'type' => 'text',
+                        'default_value' => 'group',
+                    ),
+                    array(
+                        'key' => 'field_os_impact_item_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_os_impact_item_text',
+                        'label' => 'Description',
+                        'name' => 'description',
+                        'type' => 'textarea',
+                    ),
+                ),
+            ),
+            array(
+                'key' => 'field_os_mission_tab',
+                'label' => 'Mission & Vision',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_os_mission_text',
+                'label' => 'Mission Text',
+                'name' => 'mission_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_os_vision_text',
+                'label' => 'Vision Text',
+                'name' => 'vision_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_os_values_tab',
+                'label' => 'Core Values',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_os_values_title',
+                'label' => 'Values Title',
+                'name' => 'values_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_os_core_values',
+                'label' => 'Values Items',
+                'name' => 'core_values',
+                'type' => 'repeater',
+                'layout' => 'table',
+                'sub_fields' => array(
+                    array(
+                        'key' => 'field_os_value_icon',
+                        'label' => 'Material Icon Name',
+                        'name' => 'icon',
+                        'type' => 'text',
+                    ),
+                    array(
+                        'key' => 'field_os_value_title',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                    ),
+                ),
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-our-story.php',
+                ),
+            ),
+        ),
+    ));
+
 endif;
