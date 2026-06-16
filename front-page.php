@@ -10,11 +10,6 @@
     novara_render_component('newsletter');
     ?>
 
-    <?php
-    // Global ACF Flexible Content Components Loop (Dynamic Overrides)
-    // Render dynamic components directly using the exact visual layouts migrated to components/
-    novara_render_acf_components();
-    ?>
 </main>
 
 <?php get_footer(); ?>
