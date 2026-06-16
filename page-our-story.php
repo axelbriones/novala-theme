@@ -11,7 +11,7 @@ get_header();
 <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/30 mix-blend-multiply"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-surface-container-lowest mb-6 drop-shadow-md">Born from passion,<br/>dedicated to nature.</h1>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-surface-container-lowest mb-6 drop-shadow-md"><?php echo wp_kses_post(novara_get_field('hero_title', 'Born from passion,<br/>dedicated to nature.', get_the_ID())); ?></h1>
 </div>
 </header>
 <!-- Introduction -->

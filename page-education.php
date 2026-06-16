@@ -10,7 +10,7 @@ get_header();
 </div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
 <div class="relative z-10 text-center px-margin-desktop max-w-4xl mx-auto mt-20">
-<h1 class="font-display-lg text-display-lg text-primary mb-6">Customer Education</h1>
+<h1 class="font-display-lg text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'Customer Education', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
                     Enrol today in our insightful beekeeping courses. Learn the art of apiculture from our master artisans.
                 </p>

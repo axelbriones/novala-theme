@@ -16,7 +16,7 @@ get_header();
 <!-- Hero Content -->
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto mt-16 md:mt-0">
 <span class="block font-label-md text-label-md text-primary-fixed mb-4 tracking-widest uppercase opacity-90">Partnerships</span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-tertiary mb-6 drop-shadow-md">Become a Stockist</h1>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-tertiary mb-6 drop-shadow-md"><?php echo wp_kses_post(novara_get_field('hero_title', 'Become a Stockist', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-surface-variant md:px-12">
                     Join our journey of artisanal craftsmanship. Partner with Melliflua to bring the finest, sustainably sourced honey to your community.
                 </p>

@@ -5,7 +5,7 @@ get_header();
 
 <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32">
 <section class="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
-<h1 class="font-display-lg text-display-lg text-primary mb-6">Contact Us</h1>
+<h1 class="font-display-lg text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'Contact Us', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant">We value your interest in our artisanal craft. Whether you have an inquiry about our honey, our sustainability practices, or simply want to say hello, our team is here to listen.</p>
 </section>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-16 items-start">

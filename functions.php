@@ -32,8 +32,24 @@ add_filter( 'woocommerce_checkout_fields', 'novara_wc_checkout_fields_styling', 
 
 function novara_theme_setup() {
     add_theme_support('title-tag');
+
+    // Register Nav Menus
+    register_nav_menus(array(
+        'primary' => __('Primary Menu', 'novara'),
+        'footer_about' => __('Footer About Us Menu', 'novara'),
+        'footer_partner' => __('Footer Partner Menu', 'novara'),
+        'footer_legal' => __('Footer Legal Menu', 'novara')
+    ));
     add_theme_support('woocommerce');
     add_theme_support('post-thumbnails');
+    // Add support for add_a_class to wp_nav_menu
+    add_filter('nav_menu_link_attributes', function($atts, $item, $args) {
+        if (isset($args->add_a_class)) {
+            $atts['class'] = $args->add_a_class;
+        }
+        return $atts;
+    }, 1, 3);
+
     add_theme_support('html5', array(
         'search-form',
         'comment-form',
@@ -47,11 +63,13 @@ add_action('after_setup_theme', 'novara_theme_setup');
 // ACF Options Page Registration
 if (function_exists('acf_add_options_page')) {
     acf_add_options_page(array(
-        'page_title'    => 'Theme Components',
-        'menu_title'    => 'Theme Components',
-        'menu_slug'     => 'theme-components',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
+        'page_title'    => 'Novara Theme Settings V2',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-settings',
+        'capability'    => 'edit_theme_options',
+        'redirect'      => false,
+        'icon_url'      => 'dashicons-admin-customizer',
+        'position'      => 59
     ));
 }
 
@@ -72,77 +90,90 @@ add_filter('acf/settings/load_json', 'novara_acf_json_load_point');
 // Programmatic ACF Field Registrations
 if (function_exists('acf_add_local_field_group')):
 
+    // Novara Theme Settings V2
     acf_add_local_field_group(array(
-        'key' => 'group_contact_info',
-        'title' => 'Global Contact Info',
+        'key' => 'group_novara_theme_settings_v2',
+        'title' => 'Novara Theme Settings V2',
         'fields' => array(
-            array(
-                'key' => 'field_contact_address',
-                'label' => 'Address',
-                'name' => 'contact_address',
-                'type' => 'textarea',
-                'instructions' => 'Global address used in footer and contact page.',
-                'new_lines' => 'br',
-            ),
-            array(
-                'key' => 'field_contact_email',
-                'label' => 'Email',
-                'name' => 'contact_email',
-                'type' => 'email',
-            ),
-            array(
-                'key' => 'field_contact_phone',
-                'label' => 'Phone',
-                'name' => 'contact_phone',
-                'type' => 'text',
-            ),
+            // 1. BRAND IDENTITY
+            array('key' => 'tab_brand', 'label' => '1. Brand Identity', 'type' => 'tab'),
+            array('key' => 'field_brand_name', 'label' => 'Brand Name', 'name' => 'brand_name', 'type' => 'text'),
+            array('key' => 'field_brand_logo', 'label' => 'Logo Color', 'name' => 'brand_logo', 'type' => 'image', 'return_format' => 'url'),
+            array('key' => 'field_brand_logo_white', 'label' => 'Logo Blanco', 'name' => 'brand_logo_white', 'type' => 'image', 'return_format' => 'url'),
+
+            // 2. HEADER SETTINGS
+            array('key' => 'tab_header', 'label' => '2. Header Settings', 'type' => 'tab'),
+            array('key' => 'field_header_promo', 'label' => 'Promo Text', 'name' => 'header_promo_text', 'type' => 'text'),
+            array('key' => 'field_enable_cart_icon', 'label' => 'Enable Cart Icon', 'name' => 'enable_cart_icon', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+            array('key' => 'field_enable_search', 'label' => 'Enable Search', 'name' => 'enable_search', 'type' => 'true_false', 'default_value' => 1, 'ui' => 1),
+
+            // 3. SOCIAL NETWORKS
+            array('key' => 'tab_social', 'label' => '3. Social Networks', 'type' => 'tab'),
+            array('key' => 'field_social_facebook', 'label' => 'Facebook URL', 'name' => 'social_facebook', 'type' => 'url'),
+            array('key' => 'field_social_instagram', 'label' => 'Instagram URL', 'name' => 'social_instagram', 'type' => 'url'),
+            array('key' => 'field_social_twitter', 'label' => 'Twitter URL', 'name' => 'social_twitter', 'type' => 'url'),
+            array('key' => 'field_social_tiktok', 'label' => 'TikTok URL', 'name' => 'social_tiktok', 'type' => 'url'),
+            array('key' => 'field_social_whatsapp', 'label' => 'WhatsApp Number', 'name' => 'social_whatsapp', 'type' => 'text'),
+
+            // 4. FOOTER CONFIGURATION
+            array('key' => 'tab_footer', 'label' => '4. Footer Configuration', 'type' => 'tab'),
+            array('key' => 'field_footer_text', 'label' => 'Footer Text', 'name' => 'footer_text', 'type' => 'textarea'),
+            array('key' => 'field_footer_cert', 'label' => 'Certification Logo', 'name' => 'footer_certification_logo', 'type' => 'image', 'return_format' => 'url'),
+            array('key' => 'field_footer_copy', 'label' => 'Copyright Text', 'name' => 'footer_copyright', 'type' => 'text'),
+
+            // 5. COMPANY INFO
+            array('key' => 'tab_company', 'label' => '5. Company Info', 'type' => 'tab'),
+            array('key' => 'field_contact_address', 'label' => 'Address', 'name' => 'contact_address', 'type' => 'textarea'),
+            array('key' => 'field_contact_email', 'label' => 'Email', 'name' => 'contact_email', 'type' => 'email'),
+            array('key' => 'field_contact_phone', 'label' => 'Phone', 'name' => 'contact_phone', 'type' => 'text'),
+
+            // 6. SEO & METADATA
+            array('key' => 'tab_seo', 'label' => '6. SEO & Metadata', 'type' => 'tab'),
+            array('key' => 'field_seo_title_suffix', 'label' => 'Global Title Suffix', 'name' => 'seo_title_suffix', 'type' => 'text'),
+
+            // 7. ANALYTICS & TRACKING
+            array('key' => 'tab_analytics', 'label' => '7. Analytics & Tracking', 'type' => 'tab'),
+            array('key' => 'field_tracking_gtm', 'label' => 'GTM ID', 'name' => 'tracking_gtm', 'type' => 'text'),
+
+            // 8. ECOMMERCE SETTINGS
+            array('key' => 'tab_ecommerce', 'label' => '8. eCommerce Settings', 'type' => 'tab'),
+            array('key' => 'field_woo_empty_cart', 'label' => 'Empty Cart Message', 'name' => 'woo_empty_cart_text', 'type' => 'text'),
+
+            // 9. API INTEGRATIONS
+            array('key' => 'tab_api', 'label' => '9. API Integrations', 'type' => 'tab'),
+            array('key' => 'field_api_google_maps', 'label' => 'Google Maps API Key', 'name' => 'api_google_maps', 'type' => 'text'),
+
+            // 10. TYPOGRAPHY & COLORS
+            array('key' => 'tab_styling', 'label' => '10. Typography & Colors', 'type' => 'tab'),
+            array('key' => 'field_style_primary_color', 'label' => 'Primary Color', 'name' => 'style_primary_color', 'type' => 'color_picker'),
+
+            // 11. B2B & QUOTEFLOW
+            array('key' => 'tab_b2b', 'label' => '11. B2B & QuoteFlow', 'type' => 'tab'),
+            array('key' => 'field_b2b_portal_url', 'label' => 'Portal URL', 'name' => 'b2b_portal_url', 'type' => 'url'),
+
+            // 12. PERFORMANCE
+            array('key' => 'tab_performance', 'label' => '12. Performance', 'type' => 'tab'),
+            array('key' => 'field_perf_cdn_url', 'label' => 'CDN URL', 'name' => 'perf_cdn_url', 'type' => 'url'),
+
+            // 13. EMAIL TEMPLATES
+            array('key' => 'tab_emails', 'label' => '13. Email Templates', 'type' => 'tab'),
+            array('key' => 'field_email_footer', 'label' => 'Email Footer Text', 'name' => 'email_footer_text', 'type' => 'textarea'),
+
+            // 14. GLOBAL REUSABLE CONTENT
+            array('key' => 'tab_global', 'label' => '14. Global Content', 'type' => 'tab'),
+            array('key' => 'field_global_notice', 'label' => 'Global Notice Banner', 'name' => 'global_notice_banner', 'type' => 'text'),
         ),
         'location' => array(
             array(
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'theme-components',
+                    'value' => 'theme-settings',
                 ),
             ),
         ),
     ));
-
-    acf_add_local_field_group(array(
-        'key' => 'group_social_links',
-        'title' => 'Social Links',
-        'fields' => array(
-            array(
-                'key' => 'field_social_facebook',
-                'label' => 'Facebook URL',
-                'name' => 'social_facebook',
-                'type' => 'url',
-            ),
-            array(
-                'key' => 'field_social_instagram',
-                'label' => 'Instagram URL',
-                'name' => 'social_instagram',
-                'type' => 'url',
-            ),
-            array(
-                'key' => 'field_social_twitter',
-                'label' => 'Twitter/X URL',
-                'name' => 'social_twitter',
-                'type' => 'url',
-            ),
-        ),
-        'location' => array(
-            array(
-                array(
-                    'param' => 'options_page',
-                    'operator' => '==',
-                    'value' => 'theme-components',
-                ),
-            ),
-        ),
-    ));
-
-    // Page: Our Story
+// Page: Our Story
     acf_add_local_field_group(array(
         'key' => 'group_page_our_story',
         'title' => 'Page Settings: Our Story',
@@ -285,3 +316,11 @@ if (function_exists('acf_add_local_field_group')):
     ));
 
 endif;
+
+// Enqueue styles and scripts
+function novara_enqueue_assets() {
+    wp_enqueue_style('novara-tailwind', get_template_directory_uri() . '/assets/css/app.min.css', array(), '1.0.0');
+    wp_enqueue_style('novara-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0');
+    wp_enqueue_style('novara-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), '1.0.0');
+            }
+add_action('wp_enqueue_scripts', 'novara_enqueue_assets');

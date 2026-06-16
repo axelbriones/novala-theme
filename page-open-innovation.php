@@ -10,7 +10,7 @@ get_header();
 <div class="absolute inset-0 z-0 bg-black/30"></div>
 <img class="absolute inset-0 w-full h-full object-cover z-[-1]" data-alt="A serene, sun-drenched outdoor scene depicting a wooden table in a blooming orchard during golden hour. The setting is warm and inviting, evoking a sense of organic collaboration and natural creativity. Soft, diffused light filters through the leaves, highlighting a blank notepad and scattered botanical elements. The overall aesthetic is Artisanal Modernism, featuring a warm cream and deep amber palette, communicating high-quality agricultural stewardship and open innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCLlxVyqYmQXQ1R4FxrdKHtY93Q6mLJOCFWIz6jn2jfMtvt7tK-2ebPY6eWjrPkLR_6L-BjGIJHnsI-C6pFR7JJkQQpzm5XZ3ATBcX9zMK-_8HDkaqiU90YznG5DBJEsqhzyHfbj9uuk3vGDGtFem4w0qFeC4rOhdNIWR72GJGurWE8ANgTcaO_RVLtRYh-2Gk8oeAc6QtQxNOsekgQepx0BZcmZ64KO2jzwQNhAR5K946b97-XTDeWZGu0Eriy2LdqfK6emyfcR4"/>
 <div class="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center gap-6">
-<h1 class="font-display-lg text-display-lg text-on-primary md:font-display-lg-mobile md:text-display-lg-mobile">Open Innovation</h1>
+<h1 class="font-display-lg text-display-lg text-on-primary md:font-display-lg-mobile md:text-display-lg-mobile"><?php echo wp_kses_post(novara_get_field('hero_title', 'Open Innovation', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl font-light">Do you want to share an innovative idea with us?</p>
 </div>
 </section>

@@ -12,9 +12,9 @@ get_header();
 <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="max-w-2xl text-on-primary">
 <span class="inline-block py-1 px-3 mb-6 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md uppercase tracking-wider">Partnership Opportunity</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight"><?php echo wp_kses_post(novara_get_field('hero_title', '
                     Be a Contract <br/><span class="text-inverse-primary">Bee Farmer</span>
-</h1>
+', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg mb-10 text-surface-bright opacity-90 max-w-xl leading-relaxed">
                     Got land that’s too dry, rocky, or remote for traditional crops? Don’t let it go to waste—partner with Novala Bee Works to establish thriving apiaries that yield golden returns.
                 </p>

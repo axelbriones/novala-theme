@@ -11,9 +11,9 @@ get_header();
 <div class="absolute inset-0 hero-gradient"></div>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mt-12">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-6 max-w-4xl mx-auto drop-shadow-md">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-primary mb-6 max-w-4xl mx-auto drop-shadow-md"><?php echo wp_kses_post(novara_get_field('hero_title', '
                     Environmental Stewardship at Ivovoani
-                </h1>
+                ', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-primary max-w-2xl mx-auto text-opacity-90 drop-shadow-sm">
                     Our bee farm in Ngaamba is a testament to our commitment to responsible stewardship, biodiversity, and sustainable agriculture.
                 </p>

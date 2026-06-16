@@ -14,9 +14,9 @@ get_header();
 </div>
 <div class="relative z-10 max-w-3xl mx-auto px-margin-mobile text-center pt-20 pb-32">
 <span class="inline-block px-4 py-1 mb-6 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md tracking-wider uppercase shadow-ambient">Partnerships</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-8"><?php echo wp_kses_post(novara_get_field('hero_title', '
                     Join the Novala Bee Works Influencer Program
-                </h1>
+                ', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
                     Become an ambassador for sustainable beekeeping, premium honey, and eco-friendly practices. Share your love for natural products while earning rewards.
                 </p>

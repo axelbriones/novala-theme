@@ -8,7 +8,7 @@ get_header();
 <div class="absolute inset-0 bg-cover bg-center opacity-80 mix-blend-multiply" data-alt="A macro photograph of golden honeycomb frames bathed in warm, late afternoon sunlight. The amber honey glistens within the perfectly hexagonal wax cells, conveying a sense of rich, artisanal craftsmanship. The lighting creates a high-end, editorial 'Golden Hour' aesthetic, emphasizing the organic texture and purity of the natural produce. Soft, diffused shadows enhance the depth without overwhelming the warm cream and deep amber palette." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAk_iwZQwS3-8D4hdgIUVho-P4Y58q7lmP2JcmM3mjK8rk5vUtscQTU2oGPqkczCPE93ytEHmXK-4c1lSIWA3PKdnBJz8Hao_SHVDsbF0PCp5cNlp0JtOHV1dIvxy6X-03WfCZTx98cmuFKuZg6SOrcqTJWMgZlErWCsc0cIp1HMYj2QUyHLcEoENeLgnZOm1iX8C4H4j7DCjVd0ZYjtgq3tj8f43E7n1rZYWuNz7NEo5oIhkHvJuZtqAVeoIoN6jaW4O6-QmCa-Zk');"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">BECOME A SUPPLIER</h1>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'BECOME A SUPPLIER', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Join our artisanal network and bring your high-quality, sustainable harvests to a broader market.</p>
 </div>
 </section>

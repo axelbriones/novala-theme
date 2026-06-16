@@ -4,173 +4,58 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <?php wp_head(); ?>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-          darkMode: "class",
-          theme: {
-            extend: {
-              "colors": {
-                "on-error-container": "#93000a",
-                "on-tertiary-fixed-variant": "#49473e",
-                "surface-container-low": "#f6f3f2",
-                "primary-fixed": "#ffdea9",
-                "surface-dim": "#dcd9d9",
-                "tertiary-container": "#78746b",
-                "surface-container-high": "#eae7e7",
-                "secondary-fixed-dim": "#febb10",
-                "on-secondary-fixed": "#261900",
-                "error-container": "#ffdad6",
-                "surface-tint": "#7d5800",
-                "inverse-surface": "#303030",
-                "secondary-container": "#febb10",
-                "surface-variant": "#e4e2e1",
-                "on-tertiary-fixed": "#1d1c15",
-                "outline-variant": "#d4c4af",
-                "tertiary": "#5f5c53",
-                "primary-fixed-dim": "#f8bc49",
-                "primary": "#7a5500",
-                "on-secondary": "#ffffff",
-                "surface-container-lowest": "#ffffff",
-                "surface-container": "#f0eded",
-                "outline": "#827563",
-                "tertiary-fixed-dim": "#cbc6bb",
-                "surface": "#fcf9f8",
-                "tertiary-fixed": "#e8e2d6",
-                "on-tertiary": "#ffffff",
-                "error": "#ba1a1a",
-                "on-error": "#ffffff",
-                "surface-bright": "#fcf9f8",
-                "on-surface": "#1b1c1c",
-                "on-tertiary-container": "#fffbff",
-                "on-background": "#1b1c1c",
-                "on-primary-container": "#fffbff",
-                "primary-container": "#996c00",
-                "secondary": "#7b5800",
-                "inverse-on-surface": "#f3f0f0",
-                "surface-container-highest": "#e4e2e1",
-                "on-primary-fixed": "#271900",
-                "background": "#fcf9f8",
-                "on-surface-variant": "#504535",
-                "inverse-primary": "#f8bc49",
-                "on-primary-fixed-variant": "#5e4100",
-                "secondary-fixed": "#ffdea5",
-                "on-primary": "#ffffff",
-                "on-secondary-fixed-variant": "#5d4200",
-                "on-secondary-container": "#6c4d00"
-              },
-              "borderRadius": {
-                "DEFAULT": "0.25rem",
-                "lg": "0.5rem",
-                "xl": "0.75rem",
-                "full": "9999px"
-              },
-              "spacing": {
-                "margin-desktop": "64px",
-                "margin-mobile": "20px",
-                "container-max": "1280px",
-                "gutter": "24px",
-                "unit": "8px"
-              },
-              "fontFamily": {
-                "body-lg": ["Montserrat"],
-                "label-md": ["Montserrat"],
-                "headline-sm": ["Playfair Display"],
-                "headline-md": ["Playfair Display"],
-                "display-lg": ["Playfair Display"],
-                "display-lg-mobile": ["Playfair Display"],
-                "caption": ["Montserrat"],
-                "body-md": ["Montserrat"]
-              },
-              "fontSize": {
-                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
-                "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
-                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
-                "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
-                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
-              }
-            },
-          },
-        }
-</script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .honey-overlay {
-            background: linear-gradient(to bottom, rgba(122, 85, 0, 0.4), rgba(27, 28, 28, 0.6));
-        }
-        .soft-elevation {
-            box-shadow: 0 10px 30px -10px rgba(122, 85, 0, 0.15);
-        }
-        .soft-elevation:hover {
-            box-shadow: 0 20px 40px -12px rgba(122, 85, 0, 0.25);
-        }
-        .icon-fill {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .organic-shape {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        }
-        .hover-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); /* Warm ambient shadow */
-        }
-        .material-symbols-outlined[data-weight="fill"] {
-            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .ambient-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
-        .hover-ambient-shadow:hover { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); transform: translateY(-2px); transition: all 0.3s ease; }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(27, 28, 28, 0.2), rgba(27, 28, 28, 0.6));
-        }
-        .hover-lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
-        .editorial-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.15); }
-        .glass-panel { background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.8); }
-        .soft-shadow { box-shadow: 0 10px 40px -10px rgba(122, 85, 0, 0.08); }
-        .shadow-ambient { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.08); }
-        .shadow-ambient-hover:hover { box-shadow: 0 30px 60px -15px rgba(122, 85, 0, 0.12); }
-        .glass-card { background: rgba(252, 249, 248, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(212, 196, 175, 0.3); }
-        .golden-glow { box-shadow: 0 20px 40px -10px rgba(122, 85, 0, 0.15); }
-        .bento-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-        .ambient-glow { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(254, 187, 16, 0.1) 0%, rgba(252, 249, 248, 0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
-</style>
+
+
+
 </head>
 <body <?php body_class("bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container"); ?>>
 <?php wp_body_open(); ?>
+<?php if ($promo = novara_get_option('header_promo_text')): ?>
+<div class="bg-primary text-on-primary py-2 text-center text-label-md font-label-md">
+    <?php echo esc_html($promo); ?>
+</div>
+<?php endif; ?>
+
 <!-- TopNavBar Component -->
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto backdrop-blur-md bg-surface/70 text-primary font-body-md text-body-md flat no shadows cursor-pointer active:opacity-70 transition-colors duration-300">
 <!-- Brand Logo -->
 <div class="font-headline-sm text-headline-sm text-primary tracking-tight">
-    <a href="<?php echo esc_url(home_url('/')); ?>">Novala Bee Works</a>
+    <a href="<?php echo esc_url(home_url('/')); ?>">
+        <?php
+        $brand_logo = novara_get_option('brand_logo');
+        if ($brand_logo): ?>
+            <img src="<?php echo esc_url($brand_logo); ?>" alt="<?php echo esc_attr(novara_get_option('brand_name', 'Novala Bee Works')); ?>" class="h-8 w-auto">
+        <?php else: ?>
+            <?php echo esc_html(novara_get_option('brand_name', 'Novala Bee Works')); ?>
+        <?php endif; ?>
+    </a>
 </div>
 <!-- Navigation Links (Desktop) -->
 <nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Pure Honey</a>
+    <?php
+    wp_nav_menu(array(
+        'theme_location' => 'primary',
+        'container'      => false,
+        'menu_class'     => 'flex items-center gap-8',
+        'fallback_cb'    => function() {
+            echo '<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Pure Honey</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Infused</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Seeds</a>
 <a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Hives</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Our Story</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-300" href="#">Our Story</a>';
+        },
+        'add_a_class'    => 'text-on-surface-variant font-medium hover:text-primary transition-colors duration-300',
+    ));
+    ?>
 </nav>
 <!-- Trailing Icon Actions -->
 <div class="flex items-center gap-4">
+<?php if (novara_get_option('enable_cart_icon', true)): ?>
 <button aria-label="Shopping Cart" class="text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center relative">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_cart</span>
 <span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
 </button>
+<?php endif; ?>
 <button aria-label="Person" class="text-primary hover:text-secondary transition-colors duration-300 flex items-center justify-center">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
 </button>

@@ -12,9 +12,9 @@ get_header();
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto mt-20">
 <span class="font-label-md text-label-md text-primary tracking-[0.2em] uppercase mb-6 block">Food Service Partners</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 drop-shadow-sm">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 drop-shadow-sm"><?php echo wp_kses_post(novara_get_field('hero_title', '
                     Enrich your menu with Novala products
-                </h1>
+                ', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto drop-shadow-sm">
                     Awe your customers!
                 </p>

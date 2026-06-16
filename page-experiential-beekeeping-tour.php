@@ -12,7 +12,7 @@ get_header();
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto mt-20">
 <span class="inline-block mb-6 px-4 py-1 rounded-full bg-secondary-fixed/90 text-on-secondary-fixed font-label-md text-label-md uppercase tracking-widest backdrop-blur-sm">Ivovoani Apiary</span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Experiential Beekeeping Tour</h1>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'Experiential Beekeeping Tour', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A deep dive into sustainable apiculture in the heart of Makueni County. Witness the harmony of nature and craft.</p>
 </div>
 </section>
