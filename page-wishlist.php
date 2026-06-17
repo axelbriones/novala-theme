@@ -10,7 +10,7 @@ get_header();
 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
 <div class="max-w-2xl">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-4"><?php echo wp_kses_post(novara_get_field('hero_title', 'Your Curated Collection', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">A handpicked selection of our finest artisanal honeys and crafted goods, saved for your golden hour rituals.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'A handpicked selection of our finest artisanal honeys and crafted goods, saved for your golden hour rituals.', get_the_ID())); ?></p>
 </div>
 <button class="flex items-center gap-2 border-[1.5px] border-primary text-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-colors duration-300 shrink-0">
 <span class="material-symbols-outlined text-[20px]">share</span>

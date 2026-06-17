@@ -11,20 +11,18 @@ get_header();
 </div>
 <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="max-w-2xl text-on-primary">
-<span class="inline-block py-1 px-3 mb-6 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md uppercase tracking-wider">Partnership Opportunity</span>
-<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight"><?php echo wp_kses_post(novara_get_field('hero_title', '
-                    Be a Contract <br/><span class="text-inverse-primary">Bee Farmer</span>
-', get_the_ID())); ?></h1>
+<span class="inline-block py-1 px-3 mb-6 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md uppercase tracking-wider"><?php echo esc_html(novara_get_field('hero_badge', 'Partnership Opportunity', get_the_ID())); ?></span>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight"><?php echo wp_kses_post(novara_get_field('hero_title', 'Be a Contract <br/><span class="text-inverse-primary">Bee Farmer</span>', get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg mb-10 text-surface-bright opacity-90 max-w-xl leading-relaxed">
-                    Got land that’s too dry, rocky, or remote for traditional crops? Don’t let it go to waste—partner with Novala Bee Works to establish thriving apiaries that yield golden returns.
-                </p>
+    <?php echo wp_kses_post(novara_get_field('hero_subtitle', 'Got land that’s too dry, rocky, or remote for traditional crops? Don’t let it go to waste—partner with Novala Bee Works to establish thriving apiaries that yield golden returns.', get_the_ID())); ?>
+</p>
 <div class="flex flex-col sm:flex-row gap-4">
-<a class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-md text-label-md rounded transition-colors hover:bg-secondary" href="#apply">
-                        Partner With Us
-                    </a>
-<a class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-primary-fixed text-primary-fixed font-label-md text-label-md rounded transition-colors hover:bg-primary-fixed/10" href="#value">
-                        Learn More
-                    </a>
+<a href="<?php echo esc_url(novara_get_field('hero_btn1_url', '#apply', get_the_ID())); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-md text-label-md rounded transition-colors hover:bg-secondary">
+    <?php echo esc_html(novara_get_field('hero_btn1_text', 'Partner With Us', get_the_ID())); ?>
+</a>
+<a href="<?php echo esc_url(novara_get_field('hero_btn2_url', '#value', get_the_ID())); ?>" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-primary-fixed text-primary-fixed font-label-md text-label-md rounded transition-colors hover:bg-primary-fixed/10">
+    <?php echo esc_html(novara_get_field('hero_btn2_text', 'Learn More', get_the_ID())); ?>
+</a>
 </div>
 </div>
 </div>
@@ -33,13 +31,30 @@ get_header();
 <section class="py-24 md:py-32 bg-surface" id="value">
 <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center max-w-3xl mx-auto mb-20">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Turn your marginal land into profit with contract beekeeping!</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6"><?php echo esc_html(novara_get_field('vp_title', 'Turn your marginal land into profit with contract beekeeping!', get_the_ID())); ?></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant">
-                    Novala Bee Works partners with farmers like you to establish thriving apiaries, boosting your income while supporting vital biodiversity. We provide the expertise, you provide the space.
-                </p>
+    <?php echo wp_kses_post(novara_get_field('vp_text', 'Novala Bee Works partners with farmers like you to establish thriving apiaries, boosting your income while supporting vital biodiversity. We provide the expertise, you provide the space.', get_the_ID())); ?>
+</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
+<?php
+if (function_exists('have_rows') && have_rows('vp_list', get_the_ID())):
+    $i = 0;
+    while (have_rows('vp_list', get_the_ID())): the_row();
+        $mt = ($i == 1) ? 'md:mt-8' : (($i == 2) ? 'md:mt-16' : '');
+?>
+<div class="bg-surface-bright rounded-xl p-8 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col h-full border border-surface-variant/50 <?php echo esc_attr($mt); ?>">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed/20 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'wght' 200;"><?php echo esc_html(novara_get_sub_field('icon')); ?></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<p class="font-body-md text-body-md text-on-surface-variant flex-grow"><?php echo wp_kses_post(novara_get_sub_field('text')); ?></p>
+</div>
+<?php
+    $i++;
+    endwhile;
+else: ?>
+<!-- Fallbacks -->
 <div class="bg-surface-bright rounded-xl p-8 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col h-full border border-surface-variant/50">
 <div class="w-14 h-14 rounded-full bg-secondary-fixed/20 flex items-center justify-center mb-8">
 <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'wght' 200;">landscape</span>
@@ -49,7 +64,6 @@ get_header();
                         Transform dry, rocky, or difficult-to-farm terrain into productive agricultural assets without intensive irrigation or soil preparation.
                     </p>
 </div>
-<!-- Card 2 -->
 <div class="bg-surface-bright rounded-xl p-8 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col h-full border border-surface-variant/50 mt-0 md:mt-8">
 <div class="w-14 h-14 rounded-full bg-secondary-fixed/20 flex items-center justify-center mb-8">
 <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'wght' 200;">storefront</span>
@@ -59,7 +73,6 @@ get_header();
                         Enjoy secure, reliable income with access to Novala's premium distribution network. We guarantee purchase of all quality honey produced.
                     </p>
 </div>
-<!-- Card 3 -->
 <div class="bg-surface-bright rounded-xl p-8 ambient-shadow ambient-shadow-hover transition-all duration-300 flex flex-col h-full border border-surface-variant/50 mt-0 md:mt-16">
 <div class="w-14 h-14 rounded-full bg-secondary-fixed/20 flex items-center justify-center mb-8">
 <span class="material-symbols-outlined text-secondary text-3xl" style="font-variation-settings: 'wght' 200;">psychiatry</span>
@@ -69,6 +82,7 @@ get_header();
                         Play a crucial role in enhancing local ecosystems through ethical apiculture, supporting native flora pollination and bee populations.
                     </p>
 </div>
+<?php endif; ?>
 </div>
 </div>
 </section>

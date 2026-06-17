@@ -16,10 +16,10 @@ get_header();
 </header>
 <!-- Introduction -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto text-center">
-<h2 class="font-headline-md text-headline-md text-primary mb-8">Welcome to Novala Bee Works</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8"><?php echo esc_html(novara_get_field('intro_title', 'Welcome to Novala Bee Works', get_the_ID())); ?></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-            We are more than just purveyors of honey; we are stewards of the environment. Our journey began with a profound respect for the delicate balance of nature and a passion for sustainable apiculture. At Novala Bee Works, we believe that true quality comes from a deep, harmonious relationship with our bees and the land they forage. We are dedicated to providing products that are as pure and unadulterated as the landscapes from which they originate.
-        </p>
+    <?php echo wp_kses_post(novara_get_field('intro_text', 'We are more than just purveyors of honey; we are stewards of the environment. Our journey began with a profound respect for the delicate balance of nature and a passion for sustainable apiculture. At Novala Bee Works, we believe that true quality comes from a deep, harmonious relationship with our bees and the land they forage. We are dedicated to providing products that are as pure and unadulterated as the landscapes from which they originate.', get_the_ID())); ?>
+</p>
 </section>
 <!-- Impact Section -->
 <section class="py-24 bg-surface-container-low px-margin-mobile md:px-margin-desktop">

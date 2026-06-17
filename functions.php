@@ -346,6 +346,48 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_sust_refo_tab',
+                'label' => 'Reforestation',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_sust_refo_eyebrow', 'label' => 'Eyebrow', 'name' => 'refo_eyebrow', 'type' => 'text'),
+            array('key' => 'field_sust_refo_title', 'label' => 'Title', 'name' => 'refo_title', 'type' => 'text'),
+            array('key' => 'field_sust_refo_text_1', 'label' => 'Paragraph 1', 'name' => 'refo_text_1', 'type' => 'textarea', 'new_lines' => 'br'),
+            array('key' => 'field_sust_refo_text_2', 'label' => 'Paragraph 2', 'name' => 'refo_text_2', 'type' => 'textarea', 'new_lines' => 'br'),
+            array('key' => 'field_sust_refo_image', 'label' => 'Image', 'name' => 'refo_image', 'type' => 'image', 'return_format' => 'url'),
+
+            array(
+                'key' => 'field_sust_welfare_tab',
+                'label' => 'Bee Welfare',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_sust_welfare_eyebrow', 'label' => 'Eyebrow', 'name' => 'welfare_eyebrow', 'type' => 'text'),
+            array('key' => 'field_sust_welfare_title', 'label' => 'Title', 'name' => 'welfare_title', 'type' => 'text'),
+            array('key' => 'field_sust_welfare_text', 'label' => 'Intro Text', 'name' => 'welfare_text', 'type' => 'textarea'),
+            array('key' => 'field_sust_welfare_image', 'label' => 'Image', 'name' => 'welfare_image', 'type' => 'image', 'return_format' => 'url'),
+            array(
+                'key' => 'field_sust_welfare_features',
+                'label' => 'Features',
+                'name' => 'welfare_features',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_sust_wf_icon', 'label' => 'Icon Name', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_sust_wf_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_sust_wf_text', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
+
+            array(
+                'key' => 'field_sust_agro_tab',
+                'label' => 'Agroforestry',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_sust_agro_icon', 'label' => 'Icon Name', 'name' => 'agro_icon', 'type' => 'text'),
+            array('key' => 'field_sust_agro_title', 'label' => 'Title', 'name' => 'agro_title', 'type' => 'text'),
+            array('key' => 'field_sust_agro_text', 'label' => 'Text', 'name' => 'agro_text', 'type' => 'textarea'),
+            array('key' => 'field_sust_agro_btn_txt', 'label' => 'Button Text', 'name' => 'agro_button_text', 'type' => 'text'),
+            array('key' => 'field_sust_agro_btn_url', 'label' => 'Button Link', 'name' => 'agro_button_link', 'type' => 'url'),
         ),
         'location' => array(
             array(
@@ -571,6 +613,28 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_influencer_hero_badge',
+                'label' => 'Hero Badge Text',
+                'name' => 'hero_badge',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_influencer_perks_tab',
+                'label' => 'Perks Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_influencer_perks_list',
+                'label' => 'Perks List',
+                'name' => 'perks_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_influencer_perk_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_influencer_perk_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_influencer_perk_text', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
         ),
         'location' => array(
             array(
@@ -777,6 +841,41 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_food_service_vp_tab',
+                'label' => 'Value Proposition',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_food_service_vp_title',
+                'label' => 'VP Title',
+                'name' => 'vp_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_food_service_vp_text',
+                'label' => 'VP Text',
+                'name' => 'vp_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_food_service_vp_list',
+                'label' => 'Features List',
+                'name' => 'vp_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_food_service_vp_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_food_service_vp_title_sub', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_food_service_vp_text_sub', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
+            array(
+                'key' => 'field_food_service_vp_image',
+                'label' => 'Image',
+                'name' => 'vp_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
         ),
         'location' => array(
             array(
@@ -818,6 +917,64 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'hero_image',
                 'type' => 'image',
                 'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_contract_hero_badge',
+                'label' => 'Hero Badge Text',
+                'name' => 'hero_badge',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contract_hero_btn1_text',
+                'label' => 'Hero Button 1 Text',
+                'name' => 'hero_btn1_text',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contract_hero_btn1_url',
+                'label' => 'Hero Button 1 URL',
+                'name' => 'hero_btn1_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_contract_hero_btn2_text',
+                'label' => 'Hero Button 2 Text',
+                'name' => 'hero_btn2_text',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contract_hero_btn2_url',
+                'label' => 'Hero Button 2 URL',
+                'name' => 'hero_btn2_url',
+                'type' => 'url',
+            ),
+            array(
+                'key' => 'field_contract_vp_tab',
+                'label' => 'Value Proposition',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contract_vp_title',
+                'label' => 'VP Title',
+                'name' => 'vp_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contract_vp_text',
+                'label' => 'VP Text',
+                'name' => 'vp_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_contract_vp_list',
+                'label' => 'VP List',
+                'name' => 'vp_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_contract_vp_icon', 'label' => 'Icon Name', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_contract_vp_title_sub', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_contract_vp_text_sub', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
+                )
             ),
         ),
         'location' => array(
@@ -902,6 +1059,41 @@ if (function_exists('acf_add_local_field_group')):
                     'param' => 'page_template',
                     'operator' => '==',
                     'value' => 'page-contact.php',
+                ),
+            ),
+        ),
+    ));
+
+
+    // Page: Wishlist
+    acf_add_local_field_group(array(
+        'key' => 'group_page_wishlist',
+        'title' => 'Page Settings: Wishlist',
+        'fields' => array(
+            array(
+                'key' => 'field_wishlist_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_wishlist_hero_title',
+                'label' => 'Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_wishlist_hero_subtitle',
+                'label' => 'Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-wishlist.php',
                 ),
             ),
         ),
