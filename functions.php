@@ -315,6 +315,427 @@ if (function_exists('acf_add_local_field_group')):
         ),
     ));
 
+
+    // Page: Sustainability
+    acf_add_local_field_group(array(
+        'key' => 'group_page_sustainability',
+        'title' => 'Page Settings: Sustainability',
+        'fields' => array(
+            array(
+                'key' => 'field_sustainability_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_sustainability_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_sustainability_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_sustainability_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-sustainability.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Beekeeping Tour
+    acf_add_local_field_group(array(
+        'key' => 'group_page_experiential_beekeeping_tour',
+        'title' => 'Page Settings: Beekeeping Tour',
+        'fields' => array(
+            array(
+                'key' => 'field_experiential-beekeeping-tour_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_experiential-beekeeping-tour_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_experiential-beekeeping-tour_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_experiential-beekeeping-tour_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-experiential-beekeeping-tour.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Education
+    acf_add_local_field_group(array(
+        'key' => 'group_page_education',
+        'title' => 'Page Settings: Education',
+        'fields' => array(
+            array(
+                'key' => 'field_education_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_education_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_education_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_education_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-education.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Open Innovation
+    acf_add_local_field_group(array(
+        'key' => 'group_page_open_innovation',
+        'title' => 'Page Settings: Open Innovation',
+        'fields' => array(
+            array(
+                'key' => 'field_open-innovation_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_open-innovation_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_open-innovation_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_open-innovation_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-open-innovation.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Influencer Program
+    acf_add_local_field_group(array(
+        'key' => 'group_page_influencer_program',
+        'title' => 'Page Settings: Influencer Program',
+        'fields' => array(
+            array(
+                'key' => 'field_influencer-program_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_influencer-program_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_influencer-program_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_influencer-program_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-influencer-program.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Become a Stockist
+    acf_add_local_field_group(array(
+        'key' => 'group_page_become_stockist',
+        'title' => 'Page Settings: Become a Stockist',
+        'fields' => array(
+            array(
+                'key' => 'field_become-stockist_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_become-stockist_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-stockist_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_become-stockist_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-become-stockist.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Become a Supplier
+    acf_add_local_field_group(array(
+        'key' => 'group_page_become_supplier',
+        'title' => 'Page Settings: Become a Supplier',
+        'fields' => array(
+            array(
+                'key' => 'field_become-supplier_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_become-supplier_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-supplier_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_become-supplier_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-become-supplier.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Food Service Partners
+    acf_add_local_field_group(array(
+        'key' => 'group_page_food_service_partners',
+        'title' => 'Page Settings: Food Service Partners',
+        'fields' => array(
+            array(
+                'key' => 'field_food-service-partners_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_food-service-partners_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_food-service-partners_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_food-service-partners_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-food-service-partners.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Contract Bee Farmer
+    acf_add_local_field_group(array(
+        'key' => 'group_page_contract_bee_farmer',
+        'title' => 'Page Settings: Contract Bee Farmer',
+        'fields' => array(
+            array(
+                'key' => 'field_contract-bee-farmer_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contract-bee-farmer_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contract-bee-farmer_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_contract-bee-farmer_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-contract-bee-farmer.php',
+                ),
+            ),
+        ),
+    ));
+
+    // Page: Contact
+    acf_add_local_field_group(array(
+        'key' => 'group_page_contact',
+        'title' => 'Page Settings: Contact',
+        'fields' => array(
+            array(
+                'key' => 'field_contact_hero_tab',
+                'label' => 'Hero Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contact_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'hero_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_contact_hero_subtitle',
+                'label' => 'Hero Subtitle',
+                'name' => 'hero_subtitle',
+                'type' => 'textarea',
+                'new_lines' => 'br',
+            ),
+            array(
+                'key' => 'field_contact_hero_image',
+                'label' => 'Hero Background Image',
+                'name' => 'hero_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+        ),
+        'location' => array(
+            array(
+                array(
+                    'param' => 'page_template',
+                    'operator' => '==',
+                    'value' => 'page-contact.php',
+                ),
+            ),
+        ),
+    ));
+
 endif;
 
 // Enqueue styles and scripts
