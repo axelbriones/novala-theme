@@ -8,10 +8,11 @@ get_header();
 <!-- Hero Section -->
 <section class="relative w-full h-[614px] min-h-[500px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0 bg-black/30"></div>
-<img class="absolute inset-0 w-full h-full object-cover z-[-1]" data-alt="A serene, sun-drenched outdoor scene depicting a wooden table in a blooming orchard during golden hour. The setting is warm and inviting, evoking a sense of organic collaboration and natural creativity. Soft, diffused light filters through the leaves, highlighting a blank notepad and scattered botanical elements. The overall aesthetic is Artisanal Modernism, featuring a warm cream and deep amber palette, communicating high-quality agricultural stewardship and open innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCLlxVyqYmQXQ1R4FxrdKHtY93Q6mLJOCFWIz6jn2jfMtvt7tK-2ebPY6eWjrPkLR_6L-BjGIJHnsI-C6pFR7JJkQQpzm5XZ3ATBcX9zMK-_8HDkaqiU90YznG5DBJEsqhzyHfbj9uuk3vGDGtFem4w0qFeC4rOhdNIWR72GJGurWE8ANgTcaO_RVLtRYh-2Gk8oeAc6QtQxNOsekgQepx0BZcmZ64KO2jzwQNhAR5K946b97-XTDeWZGu0Eriy2LdqfK6emyfcR4"/>
+<?php $hero_image = novara_get_field('hero_image', 'https://lh3.googleusercontent.com/aida-public/AB6AXuBCLlxVyqYmQXQ1R4FxrdKHtY93Q6mLJOCFWIz6jn2jfMtvt7tK-2ebPY6eWjrPkLR_6L-BjGIJHnsI-C6pFR7JJkQQpzm5XZ3ATBcX9zMK-_8HDkaqiU90YznG5DBJEsqhzyHfbj9uuk3vGDGtFem4w0qFeC4rOhdNIWR72GJGurWE8ANgTcaO_RVLtRYh-2Gk8oeAc6QtQxNOsekgQepx0BZcmZ64KO2jzwQNhAR5K946b97-XTDeWZGu0Eriy2LdqfK6emyfcR4', get_the_ID()); ?>
+<img class="absolute inset-0 w-full h-full object-cover z-[-1]" src="<?php echo esc_url($hero_image); ?>"/>
 <div class="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center gap-6">
 <h1 class="font-display-lg text-display-lg text-on-primary md:font-display-lg-mobile md:text-display-lg-mobile"><?php echo wp_kses_post(novara_get_field('hero_title', 'Open Innovation', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl font-light">Do you want to share an innovative idea with us?</p>
+<p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl font-light"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'Do you want to share an innovative idea with us?', get_the_ID())); ?></p>
 </div>
 </section>
 <!-- Intro & Form Section -->
@@ -19,15 +20,15 @@ get_header();
 <!-- Left Column: Context -->
 <div class="lg:col-span-5 flex flex-col gap-8 pr-0 lg:pr-12">
 <div class="w-12 h-1 bg-secondary rounded-full"></div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Collaborate with nature.</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface"><?php echo esc_html(novara_get_field('intro_title', 'Collaborate with nature.', get_the_ID())); ?></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-                    We love teaming up with creative individuals and businesses to craft products and processes that bring joy to our customers. Whether it's a new sustainable packaging solution, a unique honey infusion, or an advancement in apiary care, your ideas matter to the hive.
-                </p>
+    <?php echo wp_kses_post(novara_get_field('intro_text', 'We love teaming up with creative individuals and businesses to craft products and processes that bring joy to our customers. Whether it\'s a new sustainable packaging solution, a unique honey infusion, or an advancement in apiary care, your ideas matter to the hive.', get_the_ID())); ?>
+</p>
 <div class="mt-8 p-8 bg-surface-container-low rounded-2xl border border-outline-variant/30 relative overflow-hidden group">
 <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-<span class="material-symbols-outlined text-secondary text-4xl mb-4 block" style="font-variation-settings: 'FILL' 1;">emoji_objects</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-2">Our Promise</h3>
-<p class="text-on-surface-variant font-body-md">Every submission is reviewed by our stewardship team. We honor the origin of every idea and maintain strict confidentiality.</p>
+<span class="material-symbols-outlined text-secondary text-4xl mb-4 block" style="font-variation-settings: 'FILL' 1;"><?php echo esc_html(novara_get_field('promise_icon', 'emoji_objects', get_the_ID())); ?></span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-2"><?php echo esc_html(novara_get_field('promise_title', 'Our Promise', get_the_ID())); ?></h3>
+<p class="text-on-surface-variant font-body-md"><?php echo wp_kses_post(novara_get_field('promise_text', 'Every submission is reviewed by our stewardship team. We honor the origin of every idea and maintain strict confidentiality.', get_the_ID())); ?></p>
 </div>
 </div>
 <!-- Right Column: Form -->

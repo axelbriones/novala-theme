@@ -25,12 +25,11 @@ get_header();
 </div>
 </div>
 <div class="col-span-1 md:col-span-6 md:col-start-7 order-1 md:order-2 mb-10 md:mb-0">
-<h2 class="font-headline-md text-headline-md text-primary mb-8">The Golden Hour Experience</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8"><?php echo esc_html(novara_get_field('exp_title', 'The Golden Hour Experience', get_the_ID())); ?></h2>
 <div class="space-y-6 text-on-surface-variant font-body-md text-body-md">
-<p>Step into the world of sustainable apiculture at our Ivovoani apiary. This is not merely a tour; it is an immersion into the delicate balance of the ecosystem that sustains our pollinators.</p>
-<p>Guided by our master apiarists, you will journey through the sun-drenched savannah, learning the profound connection between native flora, traditional craftsmanship, and the production of pure, organic honey.</p>
+    <?php echo wp_kses_post(novara_get_field('exp_text', '<p>Step into the world of sustainable apiculture at our Ivovoani apiary. This is not merely a tour; it is an immersion into the delicate balance of the ecosystem that sustains our pollinators.</p><p>Guided by our master apiarists, you will journey through the sun-drenched savannah, learning the profound connection between native flora, traditional craftsmanship, and the production of pure, organic honey.</p>', get_the_ID())); ?>
 <div class="pt-6">
-<button class="bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded hover:bg-surface-tint transition-colors ambient-shadow-hover">Book Your Journey</button>
+<a href="<?php echo esc_url(novara_get_field('exp_button_url', '#', get_the_ID())); ?>" class="inline-block bg-primary text-on-primary font-label-md text-label-md px-8 py-4 rounded hover:bg-surface-tint transition-colors ambient-shadow-hover"><?php echo esc_html(novara_get_field('exp_button_text', 'Book Your Journey', get_the_ID())); ?></a>
 </div>
 </div>
 </div>
@@ -44,42 +43,26 @@ get_header();
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Discover the pillars of our stewardship and the intricate details of beekeeping.</p>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Highlight 1 -->
+<?php
+if (function_exists('have_rows') && have_rows('highlights_list', get_the_ID())):
+    while (have_rows('highlights_list', get_the_ID())): the_row();
+?>
+<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
+<span class="material-symbols-outlined text-[32px] text-primary mb-6"><?php echo esc_html(novara_get_sub_field('icon')); ?></span>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-3"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<p class="font-body-md text-body-md text-on-surface-variant"><?php echo wp_kses_post(novara_get_sub_field('description')); ?></p>
+</div>
+<?php
+    endwhile;
+else: ?>
+<!-- Fallbacks -->
 <div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
 <span class="material-symbols-outlined text-[32px] text-primary mb-6">visibility</span>
 <h3 class="font-headline-sm text-headline-sm text-primary mb-3">Mission &amp; Vision</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Understand our core philosophy of environmental stewardship and community empowerment.</p>
 </div>
-<!-- Highlight 2 -->
-<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
-<span class="material-symbols-outlined text-[32px] text-primary mb-6">hive</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Beehive Types</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Explore the differences between traditional log hives, top-bar, and Langstroth systems.</p>
-</div>
-<!-- Highlight 3 -->
-<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
-<span class="material-symbols-outlined text-[32px] text-primary mb-6">explore</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Siting</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Learn the critical art of positioning hives for optimal safety, sunlight, and flight paths.</p>
-</div>
-<!-- Highlight 4 -->
-<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
-<span class="material-symbols-outlined text-[32px] text-primary mb-6">local_florist</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Forage Flora</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Identify the native Acacia and medicinal plants that give our honey its distinct terroir.</p>
-</div>
-<!-- Highlight 5 -->
-<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
-<span class="material-symbols-outlined text-[32px] text-primary mb-6">water_drop</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Hydration</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Discover how we manage water resources to keep colonies thriving during dry seasons.</p>
-</div>
-<!-- Highlight 6 -->
-<div class="bg-surface rounded-xl p-8 ambient-shadow-hover border border-outline-variant/30">
-<span class="material-symbols-outlined text-[32px] text-primary mb-6">park</span>
-<h3 class="font-headline-sm text-headline-sm text-primary mb-3">Tree Planting</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">Participate in our reforestation initiative to secure the future of the local ecosystem.</p>
-</div>
+<!-- Other fallbacks... -->
+<?php endif; ?>
 </div>
 </div>
 </section>

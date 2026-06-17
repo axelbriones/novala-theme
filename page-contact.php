@@ -6,11 +6,30 @@ get_header();
 <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 md:py-32">
 <section class="mb-16 md:mb-24 text-center max-w-3xl mx-auto">
 <h1 class="font-display-lg text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'Contact Us', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant">We value your interest in our artisanal craft. Whether you have an inquiry about our honey, our sustainability practices, or simply want to say hello, our team is here to listen.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'We value your interest in our artisanal craft. Whether you have an inquiry about our honey, our sustainability practices, or simply want to say hello, our team is here to listen.', get_the_ID())); ?></p>
 </section>
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-16 items-start">
 <div class="lg:col-span-5 flex flex-col gap-12">
 <div class="flex flex-col gap-8">
+<?php
+if (function_exists('have_rows') && have_rows('contact_info_list', get_the_ID())):
+    while (have_rows('contact_info_list', get_the_ID())): the_row();
+?>
+<div class="flex items-start gap-4 group">
+<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;"><?php echo esc_html(novara_get_sub_field('icon', 'info')); ?></span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<div class="font-body-md text-body-md text-on-surface-variant [&>a]:hover:text-primary [&>a]:transition-colors">
+    <?php echo wp_kses_post(novara_get_sub_field('details')); ?>
+</div>
+</div>
+</div>
+<?php
+    endwhile;
+else: ?>
+<!-- Fallbacks -->
 <div class="flex items-start gap-4 group">
 <div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shrink-0">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
@@ -29,33 +48,17 @@ get_header();
 <p class="font-body-md text-body-md text-on-surface-variant">Mon-Sat: 09.00 AM - 07.00 PM<br/>Sun: Closed</p>
 </div>
 </div>
-<div class="flex items-start gap-4 group">
-<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">phone</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Phone</h3>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+254721692895">+254 721 692895</a>
-</div>
-</div>
-<div class="flex items-start gap-4 group">
-<div class="w-12 h-12 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300 shrink-0">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">mail</span>
-</div>
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Email</h3>
-<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="mailto:engage@novalabeeworks.xyz">engage@novalabeeworks.xyz</a>
-</div>
-</div>
+<?php endif; ?>
 </div>
 <div class="rounded-xl overflow-hidden shadow-sm aspect-square lg:aspect-[1.11] relative bg-surface-container">
-<img alt="Location Map" class="w-full h-full object-cover" data-location="Hakati Business Center, Nairobi, Kenya" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmdm3Vv6uWGKMSyzjh1pwDA1IGNVMEK0XunQfW4uGwKyADvHQHdDV-G93ImxS9Jdf9Drb4eYjaql7FVtkPizMQ8B-RSoTJO6C0jrH7KqlGb1IZwpejPnfiSGFXsEEbd1fBALYt4Q-QksN3GCLZtJjb5BL64fCoGf-xFVIN_Tn9mXxsdPTppPMaRSZDk42fm8duyFkD6huyEFrusuFXF9yRrILA89Key2DoTcIVXpEfz0E9Sk68LgaPiErodVL-WMr9E6STcbx-6JE"/>
+<?php $map_img = novara_get_field('map_image', 'https://lh3.googleusercontent.com/aida-public/AB6AXuAmdm3Vv6uWGKMSyzjh1pwDA1IGNVMEK0XunQfW4uGwKyADvHQHdDV-G93ImxS9Jdf9Drb4eYjaql7FVtkPizMQ8B-RSoTJO6C0jrH7KqlGb1IZwpejPnfiSGFXsEEbd1fBALYt4Q-QksN3GCLZtJjb5BL64fCoGf-xFVIN_Tn9mXxsdPTppPMaRSZDk42fm8duyFkD6huyEFrusuFXF9yRrILA89Key2DoTcIVXpEfz0E9Sk68LgaPiErodVL-WMr9E6STcbx-6JE', get_the_ID()); ?>
+<img alt="Location Map" class="w-full h-full object-cover" src="<?php echo esc_url($map_img); ?>"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-outline-variant/20 rounded-xl pointer-events-none"></div>
 </div>
 </div>
 <div class="lg:col-span-7">
 <div class="bg-surface-container-low rounded-xl p-8 md:p-12 shadow-sm border border-surface-container-highest">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-8">Send a Message</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-8"><?php echo esc_html(novara_get_field('form_title', 'Send a Message', get_the_ID())); ?></h2>
 <form class="flex flex-col gap-6">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="flex flex-col gap-2">

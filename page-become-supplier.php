@@ -9,18 +9,32 @@ get_header();
 <div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent"></div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto">
 <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'BECOME A SUPPLIER', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Join our artisanal network and bring your high-quality, sustainable harvests to a broader market.</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'Join our artisanal network and bring your high-quality, sustainable harvests to a broader market.', get_the_ID())); ?></p>
 </div>
 </section>
 <!-- Value Proposition Section -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface">
 <div class="max-w-container-max mx-auto grid md:grid-cols-2 gap-16 items-center">
 <div class="space-y-8 order-2 md:order-1">
-<h2 class="font-headline-md text-headline-md text-primary">A Partnership Rooted in Quality</h2>
+<h2 class="font-headline-md text-headline-md text-primary"><?php echo esc_html(novara_get_field('vp_title', 'A Partnership Rooted in Quality', get_the_ID())); ?></h2>
 <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
-                        Becoming a supplier for Novala Bee Works offers numerous benefits, including access to a ready market for high-quality products, ensuring consistent demand and long-term supply opportunities. As part of an integrated value chain, suppliers enjoy streamlined processes and collaborative product development.
-                    </p>
+    <?php echo wp_kses_post(novara_get_field('vp_text', 'Becoming a supplier for Novala Bee Works offers numerous benefits, including access to a ready market for high-quality products, ensuring consistent demand and long-term supply opportunities. As part of an integrated value chain, suppliers enjoy streamlined processes and collaborative product development.', get_the_ID())); ?>
+</p>
 <ul class="space-y-4 pt-4">
+<?php
+if (function_exists('have_rows') && have_rows('vp_list', get_the_ID())):
+    while (have_rows('vp_list', get_the_ID())): the_row();
+?>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1"><?php echo esc_html(novara_get_sub_field('icon', 'check')); ?></span>
+<div>
+<h3 class="font-label-md text-label-md text-on-background mb-1"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm"><?php echo wp_kses_post(novara_get_sub_field('text')); ?></p>
+</div>
+</li>
+<?php
+    endwhile;
+else: ?>
 <li class="flex items-start gap-4">
 <span class="material-symbols-outlined text-secondary mt-1">handshake</span>
 <div>
@@ -35,15 +49,17 @@ get_header();
 <p class="font-body-md text-body-md text-on-surface-variant text-sm">Work closely with our team to refine and elevate your artisanal goods.</p>
 </div>
 </li>
+<?php endif; ?>
 </ul>
 <div class="pt-6">
 <a class="inline-flex items-center justify-center px-8 py-3 bg-primary text-on-primary font-label-md text-label-md rounded-full hover:bg-secondary transition-colors shadow-sm" href="#application-form">
-                            Become A Supplier
-                        </a>
+    <?php echo esc_html(novara_get_field('vp_button_text', 'Become A Supplier', get_the_ID())); ?>
+</a>
 </div>
 </div>
 <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-sm bg-surface-container-low aspect-square relative">
-<img alt="Beekeeper inspecting a hive frame" class="w-full h-full object-cover" data-alt="A portrait of a skilled artisan beekeeper carefully inspecting a wooden hive frame in a sun-drenched field. The beekeeper wears a protective suit, but the focus is on their gloved hands delicately handling the frame, demonstrating care and stewardship. The background is a soft blur of vibrant green flora and warm sunlight. The overall aesthetic is rustic yet highly professional, matching the premium organic brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWdMkVRb86LPINMYYoFZWoHf7ZYUzglJP1AFX4-NV7-nYYW9zEENHw7tDtV7ihvufXOEZfeJ-t-t6VGGiBchBzpPtPe4S5pkXJiLO6T0XPStpgNJo0zmdly66JP_Rqnu0vPclmgV7v8gbvQZYH2v7Y1vRYOC_7CmzqCko5ZL4ZQ9pdGkkpgbg0p0mXwGVr6I-sm9h5NnclkJauJqCjtOxFZlpCGHxOQBEBwvIuFCZWFJlnf5tz7Rr7O9otGFQq51Vg1JtHe4Ndo3c"/>
+<?php $vp_image = novara_get_field('vp_image', 'https://lh3.googleusercontent.com/aida-public/AB6AXuCWdMkVRb86LPINMYYoFZWoHf7ZYUzglJP1AFX4-NV7-nYYW9zEENHw7tDtV7ihvufXOEZfeJ-t-t6VGGiBchBzpPtPe4S5pkXJiLO6T0XPStpgNJo0zmdly66JP_Rqnu0vPclmgV7v8gbvQZYH2v7Y1vRYOC_7CmzqCko5ZL4ZQ9pdGkkpgbg0p0mXwGVr6I-sm9h5NnclkJauJqCjtOxFZlpCGHxOQBEBwvIuFCZWFJlnf5tz7Rr7O9otGFQq51Vg1JtHe4Ndo3c', get_the_ID()); ?>
+<img alt="Beekeeper inspecting a hive frame" class="w-full h-full object-cover" src="<?php echo esc_url($vp_image); ?>"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
 </div>
 </div>
@@ -52,8 +68,8 @@ get_header();
 <section class="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="application-form">
 <div class="max-w-3xl mx-auto">
 <div class="text-center mb-12">
-<h2 class="font-headline-md text-headline-md text-primary mb-4">Supplier Application</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">Please provide your details below, and our procurement team will reach out to discuss potential opportunities.</p>
+<h2 class="font-headline-md text-headline-md text-primary mb-4"><?php echo esc_html(novara_get_field('form_title', 'Supplier Application', get_the_ID())); ?></h2>
+<p class="font-body-md text-body-md text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('form_subtitle', 'Please provide your details below, and our procurement team will reach out to discuss potential opportunities.', get_the_ID())); ?></p>
 </div>
 <div class="bg-surface rounded-2xl p-8 md:p-12 shadow-sm ring-1 ring-black/5">
 <form class="space-y-6">

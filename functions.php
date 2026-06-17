@@ -388,6 +388,32 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_experiential_beekeeping_tour_exp_tab',
+                'label' => 'Experience Section',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_tour_exp_title', 'label' => 'Title', 'name' => 'exp_title', 'type' => 'text'),
+            array('key' => 'field_tour_exp_text', 'label' => 'Text', 'name' => 'exp_text', 'type' => 'textarea', 'new_lines' => 'wpautop'),
+            array('key' => 'field_tour_exp_btn_txt', 'label' => 'Button Text', 'name' => 'exp_button_text', 'type' => 'text'),
+            array('key' => 'field_tour_exp_btn_url', 'label' => 'Button Link', 'name' => 'exp_button_url', 'type' => 'url'),
+
+            array(
+                'key' => 'field_experiential_beekeeping_tour_hi_tab',
+                'label' => 'Highlights Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_tour_highlights_list',
+                'label' => 'Highlights List',
+                'name' => 'highlights_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_tour_hi_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_tour_hi_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_tour_hi_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea'),
+                )
+            ),
         ),
         'location' => array(
             array(
@@ -429,6 +455,27 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'hero_image',
                 'type' => 'image',
                 'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_education_courses_tab',
+                'label' => 'Courses Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_education_courses_list',
+                'label' => 'Courses List',
+                'name' => 'courses_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_education_course_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'url'),
+                    array('key' => 'field_education_course_badge', 'label' => 'Badge Text (In-person/Virtual)', 'name' => 'badge', 'type' => 'text'),
+                    array('key' => 'field_education_course_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_education_course_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea'),
+                    array('key' => 'field_education_course_date', 'label' => 'Date String', 'name' => 'date', 'type' => 'text'),
+                    array('key' => 'field_education_course_price', 'label' => 'Price String', 'name' => 'price', 'type' => 'text'),
+                    array('key' => 'field_education_course_inq_url', 'label' => 'Inquire URL', 'name' => 'inquire_link', 'type' => 'url'),
+                    array('key' => 'field_education_course_more_url', 'label' => 'Learn More URL', 'name' => 'learn_more_link', 'type' => 'url'),
+                )
             ),
         ),
         'location' => array(
@@ -472,6 +519,16 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_open-innovation_intro_tab',
+                'label' => 'Intro Section',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_open_inn_intro_title', 'label' => 'Intro Title', 'name' => 'intro_title', 'type' => 'text'),
+            array('key' => 'field_open_inn_intro_text', 'label' => 'Intro Text', 'name' => 'intro_text', 'type' => 'textarea', 'new_lines' => 'br'),
+            array('key' => 'field_open_inn_promise_icon', 'label' => 'Promise Material Icon', 'name' => 'promise_icon', 'type' => 'text'),
+            array('key' => 'field_open_inn_promise_title', 'label' => 'Promise Title', 'name' => 'promise_title', 'type' => 'text'),
+            array('key' => 'field_open_inn_promise_text', 'label' => 'Promise Text', 'name' => 'promise_text', 'type' => 'textarea'),
         ),
         'location' => array(
             array(
@@ -556,6 +613,28 @@ if (function_exists('acf_add_local_field_group')):
                 'type' => 'image',
                 'return_format' => 'url',
             ),
+            array(
+                'key' => 'field_become-stockist_benefits_tab',
+                'label' => 'Benefits Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_become-stockist_benefits_title',
+                'label' => 'Benefits Title',
+                'name' => 'benefits_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-stockist_benefits_list',
+                'label' => 'Benefits List',
+                'name' => 'benefits_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_become-stockist_benefit_icon', 'label' => 'Material Icon Name', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_become-stockist_benefit_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_become-stockist_benefit_text', 'label' => 'Description', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
         ),
         'location' => array(
             array(
@@ -597,6 +676,64 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'hero_image',
                 'type' => 'image',
                 'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_tab',
+                'label' => 'Value Proposition',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_title',
+                'label' => 'Title',
+                'name' => 'vp_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_text',
+                'label' => 'Text',
+                'name' => 'vp_text',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_list',
+                'label' => 'Features List',
+                'name' => 'vp_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_become-supplier_vp_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_become-supplier_vp_title_sub', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_become-supplier_vp_text_sub', 'label' => 'Description', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_btn',
+                'label' => 'Button Text',
+                'name' => 'vp_button_text',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-supplier_vp_image',
+                'label' => 'Image',
+                'name' => 'vp_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_become-supplier_form_tab',
+                'label' => 'Form Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_become-supplier_form_title',
+                'label' => 'Form Title',
+                'name' => 'form_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_become-supplier_form_subtitle',
+                'label' => 'Form Subtitle',
+                'name' => 'form_subtitle',
+                'type' => 'textarea',
             ),
         ),
         'location' => array(
@@ -723,6 +860,40 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'hero_image',
                 'type' => 'image',
                 'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_contact_info_tab',
+                'label' => 'Contact Information',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contact_info_list',
+                'label' => 'Info Blocks',
+                'name' => 'contact_info_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_contact_info_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_contact_info_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_contact_info_details', 'label' => 'Details (HTML allowed for links/breaks)', 'name' => 'details', 'type' => 'textarea', 'new_lines' => 'br'),
+                )
+            ),
+            array(
+                'key' => 'field_contact_map_image',
+                'label' => 'Map Image Placeholder',
+                'name' => 'map_image',
+                'type' => 'image',
+                'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_contact_form_tab',
+                'label' => 'Contact Form',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contact_form_title',
+                'label' => 'Form Title',
+                'name' => 'form_title',
+                'type' => 'text',
             ),
         ),
         'location' => array(
