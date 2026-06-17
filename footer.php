@@ -34,7 +34,7 @@
 </a>
 <?php endif; ?>
 <?php if ($wa = novara_get_option('social_whatsapp')): ?>
-<a class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:opacity-80 transition-opacity" href="https://wa.me/<?php echo esc_attr(preg_replace('/[^0-9]/ ', '', $wa)); ?>" target="_blank">
+<a class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:opacity-80 transition-opacity" href="https://wa.me/<?php echo esc_attr(preg_replace('/[^0-9]/', '', $wa)); ?>" target="_blank">
 <span class="material-symbols-outlined text-sm">chat</span>
 </a>
 <?php endif; ?>

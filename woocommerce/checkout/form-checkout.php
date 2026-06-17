@@ -1,5 +1,3 @@
-<?php get_header(); ?>
-
 <!-- Main Content Canvas -->
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
@@ -65,5 +63,3 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
 
 </main>
-
-<?php get_footer(); ?>
