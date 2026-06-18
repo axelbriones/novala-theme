@@ -71,10 +71,21 @@ else: ?>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
 <!-- Requirements -->
 <div>
-<h2 class="font-headline-md text-headline-md text-primary mb-8">Requirements &amp; Gear</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8"><?php echo esc_html(novara_get_field('reqs_title', 'Requirements & Gear', get_the_ID())); ?></h2>
 <div class="bg-surface-container rounded-xl p-8 border border-outline-variant/50">
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">For your safety and comfort, proper attire is mandatory within the apiary bounds.</p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6"><?php echo wp_kses_post(novara_get_field('reqs_text', 'For your safety and comfort, proper attire is mandatory within the apiary bounds.', get_the_ID())); ?></p>
 <ul class="space-y-4 mb-8">
+<?php
+if (function_exists('have_rows') && have_rows('reqs_list', get_the_ID())):
+    while (have_rows('reqs_list', get_the_ID())): the_row();
+?>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface-variant"><?php echo esc_html(novara_get_sub_field('item')); ?></span>
+</li>
+<?php
+    endwhile;
+else: ?>
 <li class="flex items-start gap-4">
 <span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
 <span class="font-body-md text-body-md text-on-surface-variant">Full Bee Suit (Mandatory)</span>
@@ -87,18 +98,35 @@ else: ?>
 <span class="material-symbols-outlined text-secondary mt-1">check_circle</span>
 <span class="font-body-md text-body-md text-on-surface-variant">Thick Protective Gloves</span>
 </li>
+<?php endif; ?>
 </ul>
 <div class="bg-surface p-6 rounded border border-secondary-fixed-dim/30">
-<h4 class="font-headline-sm text-headline-sm text-primary mb-2 text-lg">Equipment Rental</h4>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm">Don't have your own gear? We offer premium, freshly laundered satin bee suits for rent at KES 500 per session.</p>
+<h4 class="font-headline-sm text-headline-sm text-primary mb-2 text-lg"><?php echo esc_html(novara_get_field('rental_title', 'Equipment Rental', get_the_ID())); ?></h4>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm"><?php echo wp_kses_post(novara_get_field('rental_text', 'Don\'t have your own gear? We offer premium, freshly laundered satin bee suits for rent at KES 500 per session.', get_the_ID())); ?></p>
 </div>
 </div>
 </div>
 <!-- Pricing & Info -->
 <div>
-<h2 class="font-headline-md text-headline-md text-primary mb-8">Investment &amp; Details</h2>
+<h2 class="font-headline-md text-headline-md text-primary mb-8"><?php echo esc_html(novara_get_field('details_title', 'Investment & Details', get_the_ID())); ?></h2>
 <div class="space-y-6 mb-10">
 <!-- Essential Info -->
+<?php
+if (function_exists('have_rows') && have_rows('details_list', get_the_ID())):
+    while (have_rows('details_list', get_the_ID())): the_row();
+?>
+<div class="flex gap-4 items-center p-4 bg-surface rounded-lg border border-outline-variant/30">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined"><?php echo esc_html(novara_get_sub_field('icon')); ?></span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant"><?php echo esc_html(novara_get_sub_field('label')); ?></p>
+<p class="font-body-md text-body-md text-primary font-semibold"><?php echo esc_html(novara_get_sub_field('value')); ?></p>
+</div>
+</div>
+<?php
+    endwhile;
+else: ?>
 <div class="flex gap-4 items-center p-4 bg-surface rounded-lg border border-outline-variant/30">
 <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
 <span class="material-symbols-outlined">schedule</span>
@@ -126,13 +154,25 @@ else: ?>
 <p class="font-body-md text-body-md text-primary font-semibold">Please carry your own food &amp; water</p>
 </div>
 </div>
+<?php endif; ?>
 </div>
 <!-- Pricing Table -->
 <div class="bg-surface rounded-xl overflow-hidden border border-outline-variant/50 ambient-shadow">
 <div class="bg-surface-container-high py-4 px-6 border-b border-outline-variant/30">
-<h3 class="font-headline-sm text-headline-sm text-primary text-xl">Tiered Pricing</h3>
+<h3 class="font-headline-sm text-headline-sm text-primary text-xl"><?php echo esc_html(novara_get_field('pricing_title', 'Tiered Pricing', get_the_ID())); ?></h3>
 </div>
 <div class="divide-y divide-outline-variant/20">
+<?php
+if (function_exists('have_rows') && have_rows('pricing_tiers', get_the_ID())):
+    while (have_rows('pricing_tiers', get_the_ID())): the_row();
+?>
+<div class="flex justify-between py-4 px-6 hover:bg-surface-container-lowest transition-colors">
+<span class="font-body-md text-body-md text-on-surface-variant"><?php echo esc_html(novara_get_sub_field('tier')); ?></span>
+<span class="font-label-md text-label-md text-primary"><?php echo esc_html(novara_get_sub_field('price')); ?></span>
+</div>
+<?php
+    endwhile;
+else: ?>
 <div class="flex justify-between py-4 px-6 hover:bg-surface-container-lowest transition-colors">
 <span class="font-body-md text-body-md text-on-surface-variant">1 Person</span>
 <span class="font-label-md text-label-md text-primary">KES 3,000</span>
@@ -153,6 +193,7 @@ else: ?>
 <span class="font-body-md text-body-md text-on-surface-variant">5 to 10 Persons</span>
 <span class="font-label-md text-label-md text-primary">KES 10,000 Flat Rate</span>
 </div>
+<?php endif; ?>
 </div>
 </div>
 </div>

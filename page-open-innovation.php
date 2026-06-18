@@ -34,59 +34,66 @@ get_header();
 <!-- Right Column: Form -->
 <div class="lg:col-span-7 mt-12 lg:mt-0">
 <div class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 shadow-[0_20px_40px_-15px_rgba(122,85,0,0.05)] border border-surface-variant/50">
-<form class="flex flex-col gap-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="name">Your Name *</label>
-<input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="name" required="" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="company">Company Name</label>
-<input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="company" type="text"/>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="email">Email Address *</label>
-<input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="email" required="" type="email"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="phone">Phone Number</label>
-<input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="phone" type="tel"/>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="location">Where are you based? *</label>
-<input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="location" required="" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="deck">Presentation deck / material?</label>
-<div class="relative border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
-<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" id="deck" type="file"/>
-<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-3xl">cloud_upload</span>
-<div class="text-center">
-<p class="font-body-md text-on-surface font-medium">Click to upload or drag and drop</p>
-<p class="font-caption text-caption text-outline mt-1">PDF, PPTX, or DOCX (Max. 10MB)</p>
-</div>
-</div>
-</div>
-<div class="flex flex-col gap-2 mt-4">
-<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="message">Brief Description (Optional)</label>
-<textarea class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md resize-none placeholder:text-outline-variant" id="message" rows="4"></textarea>
-</div>
-<div class="flex items-start gap-3 mt-4">
-<div class="flex items-center h-6">
-<input class="w-5 h-5 rounded border-surface-variant text-primary focus:ring-primary bg-surface-container-lowest cursor-pointer transition-colors" id="policy" required="" type="checkbox"/>
-</div>
-<label class="font-body-md text-body-md text-on-surface-variant cursor-pointer text-sm" for="policy">
-                                I accept Novatus Limited &amp; Novala Bee Works Innovation Proposal Submission Policy.
-                            </label>
-</div>
-<button class="mt-6 bg-primary text-on-primary font-label-md text-label-md py-4 px-8 rounded-full hover:bg-primary-container transition-colors duration-300 w-full md:w-auto md:self-start shadow-[0_8px_16px_-4px_rgba(122,85,0,0.15)] flex items-center justify-center gap-2 group" type="submit">
-                            Submit Proposal
-                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</button>
-</form>
+<?php
+    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
+    if (!empty($cf7_shortcode)):
+        echo do_shortcode($cf7_shortcode);
+    else:
+    ?>
+    <form class="flex flex-col gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="name">Your Name *</label>
+    <input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="name" required="" type="text"/>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="company">Company Name</label>
+    <input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="company" type="text"/>
+    </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="email">Email Address *</label>
+    <input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="email" required="" type="email"/>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="phone">Phone Number</label>
+    <input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="phone" type="tel"/>
+    </div>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="location">Where are you based? *</label>
+    <input class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md placeholder:text-outline-variant" id="location" required="" type="text"/>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="deck">Presentation deck / material?</label>
+    <div class="relative border-2 border-dashed border-outline-variant/50 rounded-xl p-8 flex flex-col items-center justify-center gap-4 hover:bg-surface-container-low transition-colors cursor-pointer group">
+    <input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" id="deck" type="file"/>
+    <span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors text-3xl">cloud_upload</span>
+    <div class="text-center">
+    <p class="font-body-md text-on-surface font-medium">Click to upload or drag and drop</p>
+    <p class="font-caption text-caption text-outline mt-1">PDF, PPTX, or DOCX (Max. 10MB)</p>
+    </div>
+    </div>
+    </div>
+    <div class="flex flex-col gap-2 mt-4">
+    <label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider text-xs" for="message">Brief Description (Optional)</label>
+    <textarea class="bg-surface-container-lowest border border-surface-variant text-on-surface rounded-lg px-4 py-3 focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none font-body-md resize-none placeholder:text-outline-variant" id="message" rows="4"></textarea>
+    </div>
+    <div class="flex items-start gap-3 mt-4">
+    <div class="flex items-center h-6">
+    <input class="w-5 h-5 rounded border-surface-variant text-primary focus:ring-primary bg-surface-container-lowest cursor-pointer transition-colors" id="policy" required="" type="checkbox"/>
+    </div>
+    <label class="font-body-md text-body-md text-on-surface-variant cursor-pointer text-sm" for="policy">
+                                    I accept Novatus Limited &amp; Novala Bee Works Innovation Proposal Submission Policy.
+                                </label>
+    </div>
+    <button class="mt-6 bg-primary text-on-primary font-label-md text-label-md py-4 px-8 rounded-full hover:bg-primary-container transition-colors duration-300 w-full md:w-auto md:self-start shadow-[0_8px_16px_-4px_rgba(122,85,0,0.15)] flex items-center justify-center gap-2 group" type="submit">
+                                Submit Proposal
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+    </button>
+    </form>
+    <?php endif; ?>
 </div>
 </div>
 </section>

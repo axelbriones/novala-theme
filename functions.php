@@ -456,6 +456,52 @@ if (function_exists('acf_add_local_field_group')):
                     array('key' => 'field_tour_hi_desc', 'label' => 'Description', 'name' => 'description', 'type' => 'textarea'),
                 )
             ),
+            array(
+                'key' => 'field_experiential_beekeeping_tour_reqs_tab',
+                'label' => 'Requirements Section',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_tour_reqs_title', 'label' => 'Title', 'name' => 'reqs_title', 'type' => 'text'),
+            array('key' => 'field_tour_reqs_text', 'label' => 'Text', 'name' => 'reqs_text', 'type' => 'textarea'),
+            array(
+                'key' => 'field_tour_reqs_list',
+                'label' => 'Requirements List',
+                'name' => 'reqs_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_tour_req_item', 'label' => 'Item', 'name' => 'item', 'type' => 'text'),
+                )
+            ),
+            array('key' => 'field_tour_rental_title', 'label' => 'Rental Title', 'name' => 'rental_title', 'type' => 'text'),
+            array('key' => 'field_tour_rental_text', 'label' => 'Rental Text', 'name' => 'rental_text', 'type' => 'textarea'),
+            array(
+                'key' => 'field_experiential_beekeeping_tour_pricing_tab',
+                'label' => 'Pricing Section',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_tour_details_title', 'label' => 'Details Title', 'name' => 'details_title', 'type' => 'text'),
+            array(
+                'key' => 'field_tour_details_list',
+                'label' => 'Details List',
+                'name' => 'details_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_tour_det_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_tour_det_label', 'label' => 'Label', 'name' => 'label', 'type' => 'text'),
+                    array('key' => 'field_tour_det_value', 'label' => 'Value', 'name' => 'value', 'type' => 'text'),
+                )
+            ),
+            array('key' => 'field_tour_pricing_title', 'label' => 'Pricing Title', 'name' => 'pricing_title', 'type' => 'text'),
+            array(
+                'key' => 'field_tour_pricing_tiers',
+                'label' => 'Pricing Tiers',
+                'name' => 'pricing_tiers',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_tour_tier', 'label' => 'Tier (e.g. 1 Person)', 'name' => 'tier', 'type' => 'text'),
+                    array('key' => 'field_tour_price', 'label' => 'Price (e.g. KES 3,000)', 'name' => 'price', 'type' => 'text'),
+                )
+            ),
         ),
         'location' => array(
             array(
@@ -571,6 +617,17 @@ if (function_exists('acf_add_local_field_group')):
             array('key' => 'field_open_inn_promise_icon', 'label' => 'Promise Material Icon', 'name' => 'promise_icon', 'type' => 'text'),
             array('key' => 'field_open_inn_promise_title', 'label' => 'Promise Title', 'name' => 'promise_title', 'type' => 'text'),
             array('key' => 'field_open_inn_promise_text', 'label' => 'Promise Text', 'name' => 'promise_text', 'type' => 'textarea'),
+            array(
+                'key' => 'field_open_inn_form_tab',
+                'label' => 'Form Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_open_inn_cf7_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'cf7_shortcode',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -635,6 +692,16 @@ if (function_exists('acf_add_local_field_group')):
                     array('key' => 'field_influencer_perk_text', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
                 )
             ),
+            array(
+                'key' => 'field_influencer_cta_tab',
+                'label' => 'CTA Section',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_inf_cta_icon', 'label' => 'CTA Icon', 'name' => 'cta_icon', 'type' => 'text'),
+            array('key' => 'field_inf_cta_title', 'label' => 'CTA Title', 'name' => 'cta_title', 'type' => 'text'),
+            array('key' => 'field_inf_cta_text', 'label' => 'CTA Text', 'name' => 'cta_text', 'type' => 'textarea', 'new_lines' => 'br'),
+            array('key' => 'field_inf_cta_btn_text', 'label' => 'CTA Button Text', 'name' => 'cta_btn_text', 'type' => 'text'),
+            array('key' => 'field_inf_cta_btn_url', 'label' => 'CTA Button URL', 'name' => 'cta_btn_url', 'type' => 'url'),
         ),
         'location' => array(
             array(
@@ -799,6 +866,12 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'form_subtitle',
                 'type' => 'textarea',
             ),
+            array(
+                'key' => 'field_become_supplier_cf7_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'cf7_shortcode',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -875,6 +948,52 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'vp_image',
                 'type' => 'image',
                 'return_format' => 'url',
+            ),
+            array(
+                'key' => 'field_food_service_benefits_tab',
+                'label' => 'Benefits Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_food_service_benefits_title',
+                'label' => 'Benefits Title',
+                'name' => 'benefits_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_food_service_benefits_list',
+                'label' => 'Benefits List',
+                'name' => 'benefits_list',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_food_service_benefit_icon', 'label' => 'Material Icon', 'name' => 'icon', 'type' => 'text'),
+                    array('key' => 'field_food_service_benefit_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_food_service_benefit_text', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
+                )
+            ),
+            array(
+                'key' => 'field_food_service_form_tab',
+                'label' => 'Form Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_food_service_form_title',
+                'label' => 'Form Title',
+                'name' => 'form_title',
+                'type' => 'text',
+            ),
+            array(
+                'key' => 'field_food_service_form_subtitle',
+                'label' => 'Form Subtitle',
+                'name' => 'form_subtitle',
+                'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_food_service_cf7_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'cf7_shortcode',
+                'type' => 'text',
+                'instructions' => 'Paste the shortcode here, e.g., [contact-form-7 id="123" title="Partner Form"]',
             ),
         ),
         'location' => array(
@@ -976,6 +1095,17 @@ if (function_exists('acf_add_local_field_group')):
                     array('key' => 'field_contract_vp_text_sub', 'label' => 'Text', 'name' => 'text', 'type' => 'textarea'),
                 )
             ),
+            array(
+                'key' => 'field_contract_form_tab',
+                'label' => 'Form Section',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_contract_cf7_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'cf7_shortcode',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -1052,6 +1182,12 @@ if (function_exists('acf_add_local_field_group')):
                 'name' => 'form_title',
                 'type' => 'text',
             ),
+            array(
+                'key' => 'field_contact_cf7_shortcode',
+                'label' => 'Contact Form 7 Shortcode',
+                'name' => 'cf7_shortcode',
+                'type' => 'text',
+            ),
         ),
         'location' => array(
             array(
@@ -1086,6 +1222,23 @@ if (function_exists('acf_add_local_field_group')):
                 'label' => 'Subtitle',
                 'name' => 'hero_subtitle',
                 'type' => 'textarea',
+            ),
+            array(
+                'key' => 'field_wishlist_demo_tab',
+                'label' => 'Demo Wishlist Grid',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_wishlist_demo_items',
+                'label' => 'Demo Items (Used if YITH Wishlist is not active)',
+                'name' => 'wishlist_demo_items',
+                'type' => 'repeater',
+                'sub_fields' => array(
+                    array('key' => 'field_wl_demo_image', 'label' => 'Image', 'name' => 'image', 'type' => 'image', 'return_format' => 'url'),
+                    array('key' => 'field_wl_demo_title', 'label' => 'Title', 'name' => 'title', 'type' => 'text'),
+                    array('key' => 'field_wl_demo_price', 'label' => 'Price', 'name' => 'price', 'type' => 'text'),
+                    array('key' => 'field_wl_demo_badge', 'label' => 'Badge (Optional)', 'name' => 'badge', 'type' => 'text'),
+                )
             ),
         ),
         'location' => array(

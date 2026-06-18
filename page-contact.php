@@ -59,32 +59,39 @@ else: ?>
 <div class="lg:col-span-7">
 <div class="bg-surface-container-low rounded-xl p-8 md:p-12 shadow-sm border border-surface-container-highest">
 <h2 class="font-headline-md text-headline-md text-on-surface mb-8"><?php echo esc_html(novara_get_field('form_title', 'Send a Message', get_the_ID())); ?></h2>
-<form class="flex flex-col gap-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="name">Name</label>
-<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="name" name="name" required="" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="email">Email</label>
-<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="email" name="email" required="" type="email"/>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="subject">Subject</label>
-<input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="subject" name="subject" required="" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="font-label-md text-label-md text-on-surface-variant" for="message">Message</label>
-<textarea class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200 resize-y" id="message" name="message" required="" rows="6"></textarea>
-</div>
-<div class="pt-4">
-<button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md py-4 px-8 rounded-md hover:bg-surface-tint transition-colors duration-300 shadow-sm flex justify-center items-center gap-2 group" type="submit">
-                                Send Message
-                                <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-</button>
-</div>
-</form>
+<?php
+    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
+    if (!empty($cf7_shortcode)):
+        echo do_shortcode($cf7_shortcode);
+    else:
+    ?>
+    <form class="flex flex-col gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant" for="name">Name</label>
+    <input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="name" name="name" required="" type="text"/>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant" for="email">Email</label>
+    <input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="email" name="email" required="" type="email"/>
+    </div>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant" for="subject">Subject</label>
+    <input class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200" id="subject" name="subject" required="" type="text"/>
+    </div>
+    <div class="flex flex-col gap-2">
+    <label class="font-label-md text-label-md text-on-surface-variant" for="message">Message</label>
+    <textarea class="bg-surface-container-lowest border border-outline-variant focus:border-primary focus:ring-0 rounded-md px-4 py-3 font-body-md text-on-surface transition-colors duration-200 resize-y" id="message" name="message" required="" rows="6"></textarea>
+    </div>
+    <div class="pt-4">
+    <button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md py-4 px-8 rounded-md hover:bg-surface-tint transition-colors duration-300 shadow-sm flex justify-center items-center gap-2 group" type="submit">
+                                    Send Message
+                                    <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+    </button>
+    </div>
+    </form>
+    <?php endif; ?>
 </div>
 </div>
 </div>

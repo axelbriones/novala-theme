@@ -28,11 +28,25 @@ get_header();
 <!-- Benefits Section (Bento Layout) -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Value Added Products</h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('benefits_title', 'Value Added Products', get_the_ID())); ?></h2>
 <div class="w-16 h-0.5 bg-primary mx-auto"></div>
 </div>
 <div class="bento-grid">
-<!-- Card 1 -->
+<?php
+if (function_exists('have_rows') && have_rows('benefits_list', get_the_ID())):
+    while (have_rows('benefits_list', get_the_ID())): the_row();
+?>
+<div class="col-span-12 md:col-span-4 glass-card golden-glow rounded-xl p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-500">
+<div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors duration-300">
+<span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 0;"><?php echo esc_html(novara_get_sub_field('icon')); ?></span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<p class="font-body-md text-body-md text-on-surface-variant"><?php echo wp_kses_post(novara_get_sub_field('text')); ?></p>
+</div>
+<?php
+    endwhile;
+else: ?>
+<!-- Fallbacks -->
 <div class="col-span-12 md:col-span-4 glass-card golden-glow rounded-xl p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-500">
 <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors duration-300">
 <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 0;">payments</span>
@@ -40,7 +54,6 @@ get_header();
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Buy at wholesale prices</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Unlock premium margins on our artisanal honey collections designed specifically for culinary professionals.</p>
 </div>
-<!-- Card 2 -->
 <div class="col-span-12 md:col-span-4 glass-card golden-glow rounded-xl p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-500">
 <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors duration-300">
 <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 0;">credit_card</span>
@@ -48,7 +61,6 @@ get_header();
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Access credit facilities</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Flexible payment terms designed to support your restaurant's cash flow and inventory needs.</p>
 </div>
-<!-- Card 3 -->
 <div class="col-span-12 md:col-span-4 glass-card golden-glow rounded-xl p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-500">
 <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center mb-6 group-hover:bg-primary-fixed transition-colors duration-300">
 <span class="material-symbols-outlined text-3xl text-primary" style="font-variation-settings: 'FILL' 0;">campaign</span>
@@ -56,6 +68,7 @@ get_header();
 <h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Co-marketing opportunities</h3>
 <p class="font-body-md text-body-md text-on-surface-variant">Feature your signature dishes on our platforms and collaborate on exclusive seasonal campaigns.</p>
 </div>
+<?php endif; ?>
 </div>
 </section>
 <!-- Form Section -->
@@ -64,34 +77,44 @@ get_header();
 <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-fixed/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
 <div class="text-center mb-12">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Thank You for Your Interest in Our Products</h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant">Please complete our Food Service Partner Request, and we will be in touch!</p>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('form_title', 'Thank You for Your Interest in Our Products', get_the_ID())); ?></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('form_subtitle', 'Please complete our Food Service Partner Request, and we will be in touch!', get_the_ID())); ?></p>
 </div>
-<form class="glass-card golden-glow rounded-xl p-8 md:p-12 space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface" for="business_name">Business Name</label>
-<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="business_name" name="business_name" required="" type="text"/>
+<div class="glass-card golden-glow rounded-xl p-8 md:p-12">
+    <?php
+    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
+    if (!empty($cf7_shortcode)):
+        echo do_shortcode($cf7_shortcode);
+    else:
+    ?>
+    <!-- Fallback HTML Form if CF7 shortcode is not provided -->
+    <form class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-on-surface" for="business_name">Business Name</label>
+    <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="business_name" name="business_name" required="" type="text"/>
+    </div>
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-on-surface" for="contact_person">Contact Person</label>
+    <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="contact_person" name="contact_person" required="" type="text"/>
+    </div>
+    </div>
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-on-surface" for="email">Email Address</label>
+    <input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="email" name="email" required="" type="email"/>
+    </div>
+    <div class="space-y-2">
+    <label class="font-label-md text-label-md text-on-surface" for="vision">Tell us about your culinary vision</label>
+    <textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-y" id="vision" name="vision" rows="4"></textarea>
+    </div>
+    <div class="pt-4 text-center">
+    <button class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-10 py-4 rounded hover:bg-primary-container transition-all duration-300 w-full md:w-auto shadow-md" type="submit">
+                                Submit Request
+                            </button>
+    </div>
+    </form>
+    <?php endif; ?>
 </div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface" for="contact_person">Contact Person</label>
-<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="contact_person" name="contact_person" required="" type="text"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface" for="email">Email Address</label>
-<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="email" name="email" required="" type="email"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface" for="vision">Tell us about your culinary vision</label>
-<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-y" id="vision" name="vision" rows="4"></textarea>
-</div>
-<div class="pt-4 text-center">
-<button class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-10 py-4 rounded hover:bg-primary-container transition-all duration-300 w-full md:w-auto shadow-md" type="submit">
-                            Submit Request
-                        </button>
-</div>
-</form>
 </div>
 </section>
 </main>

@@ -107,40 +107,47 @@ else: ?>
 <!-- Form Container -->
 <div class="lg:col-span-7">
 <div class="bg-surface-bright rounded-2xl p-8 md:p-12 ambient-shadow border border-surface-variant/50">
-<form action="#" class="space-y-6" method="POST">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="firstName">First Name</label>
-<input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="firstName" name="firstName" required="" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="lastName">Last Name</label>
-<input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="lastName" name="lastName" required="" type="text"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="email">Email Address</label>
-<input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="email" name="email" required="" type="email"/>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="location">Farm Location (City/Region)</label>
-<input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="location" name="location" required="" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="landSize">Available Land Size (Acres/Hectares)</label>
-<input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="landSize" name="landSize" required="" type="text"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="block font-label-md text-label-md text-on-surface" for="description">Land Description</label>
-<textarea class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-none" id="description" name="description" placeholder="Briefly describe the terrain, current use, and water access if any..." rows="4"></textarea>
-</div>
-<button class="w-full md:w-auto mt-8 px-10 py-4 bg-primary text-on-primary font-label-md text-label-md rounded transition-all hover:bg-secondary hover:ambient-shadow-hover focus:ring-2 focus:ring-offset-2 focus:ring-primary flex items-center justify-center space-x-2" type="submit">
-<span>Submit Application</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</button>
-</form>
+<?php
+    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
+    if (!empty($cf7_shortcode)):
+        echo do_shortcode($cf7_shortcode);
+    else:
+    ?>
+    <form action="#" class="space-y-6" method="POST">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="firstName">First Name</label>
+    <input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="firstName" name="firstName" required="" type="text"/>
+    </div>
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="lastName">Last Name</label>
+    <input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="lastName" name="lastName" required="" type="text"/>
+    </div>
+    </div>
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="email">Email Address</label>
+    <input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="email" name="email" required="" type="email"/>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="location">Farm Location (City/Region)</label>
+    <input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="location" name="location" required="" type="text"/>
+    </div>
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="landSize">Available Land Size (Acres/Hectares)</label>
+    <input class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none" id="landSize" name="landSize" required="" type="text"/>
+    </div>
+    </div>
+    <div class="space-y-2">
+    <label class="block font-label-md text-label-md text-on-surface" for="description">Land Description</label>
+    <textarea class="w-full bg-surface border border-outline-variant rounded px-4 py-3 text-on-surface font-body-md text-body-md focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-none" id="description" name="description" placeholder="Briefly describe the terrain, current use, and water access if any..." rows="4"></textarea>
+    </div>
+    <button class="w-full md:w-auto mt-8 px-10 py-4 bg-primary text-on-primary font-label-md text-label-md rounded transition-all hover:bg-secondary hover:ambient-shadow-hover focus:ring-2 focus:ring-offset-2 focus:ring-primary flex items-center justify-center space-x-2" type="submit">
+    <span>Submit Application</span>
+    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+    </button>
+    </form>
+    <?php endif; ?>
 </div>
 </div>
 </div>

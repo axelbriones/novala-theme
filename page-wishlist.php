@@ -18,64 +18,47 @@ get_header();
                 </button>
 </div>
 <!-- Wishlist Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-[64px]">
-<!-- Product Card 1 -->
+<div class="mt-8">
+<?php
+// Check if YITH Wishlist is active and we want to render it,
+// else fallback to an ACF manual grid or a placeholder
+if (shortcode_exists('yith_wcwl_wishlist')) {
+    echo do_shortcode('[yith_wcwl_wishlist]');
+} else {
+    // If no plugin, we allow the client to populate a static grid via ACF for demo/landing purposes
+    if (function_exists('have_rows') && have_rows('wishlist_demo_items', get_the_ID())):
+        echo '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-[64px]">';
+        while (have_rows('wishlist_demo_items', get_the_ID())): the_row();
+?>
 <article class="group flex flex-col relative transition-transform duration-500 hover:-translate-y-2">
 <div class="relative w-full aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-6 transition-all duration-500 group-hover:editorial-shadow">
-<img alt="Raw Wildflower Honey" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" data-alt="A premium glass jar of Novala Bee Works Raw Wildflower Honey resting on a rustic wooden table. The jar catches the warm, sun-drenched golden hour light, highlighting the rich amber hue of the honey inside. The setting is minimal and artisanal, with a soft warm cream background and subtle diffused shadows creating an editorial, luxurious atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUW5Y-W8wwEge4i9LGuOAJNvZvniqY1vo65VcntBTkglog0VR9XuAE_V3ZgsxSWESMVZplztvVduTDeGjf1KiRu2tx0CKix7TgOpJi5AxUrThKfJpKblMooAW3NYWkAMD-q1hbDYBiQM5vLKZZZWWzD2BQLOzRePonzqqNCqdq8Cdp4wIcMnQYocl3LDLv9Iw5k_BI_eeF1QlxIwY3TmEvSm7bfvgyaHXg_WwPRCiucOIzmy7y4hUP8nrYJjiuH1TVXMv-mTX_ouo"/>
-<!-- Badges -->
+<img alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
+<?php if ($badge = novara_get_sub_field('badge')): ?>
 <div class="absolute top-4 left-4 flex gap-2">
-<span class="bg-secondary-container text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Organic</span>
+<span class="bg-secondary-container text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider px-3 py-1 rounded-full"><?php echo esc_html($badge); ?></span>
 </div>
-<!-- Remove Button -->
+<?php endif; ?>
 <button aria-label="Remove from wishlist" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-primary hover:bg-primary hover:text-on-primary transition-colors duration-300">
 <span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
 </button>
 </div>
 <div class="flex-grow flex flex-col">
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Raw Wildflower Reserve</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">$32.00</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2"><?php echo esc_html(novara_get_sub_field('title')); ?></h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6"><?php echo esc_html(novara_get_sub_field('price')); ?></p>
 <button class="mt-auto w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full hover:bg-surface-tint transition-colors duration-300">
-                            Add to Cart
-                        </button>
-</div>
-</article>
-<!-- Product Card 2 -->
-<article class="group flex flex-col relative transition-transform duration-500 hover:-translate-y-2">
-<div class="relative w-full aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-6 transition-all duration-500 group-hover:editorial-shadow">
-<img alt="Honeycomb Block" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" data-alt="A pristine, artisanal block of raw honeycomb presented on a minimalist ceramic plate. The natural hexagonal structure of the wax is crisp and glowing with deep amber hues under soft, diffused natural light. The aesthetic is clean and modern, set against a warm cream backdrop, emphasizing the raw, organic beauty of the honey production process." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADDfuJHAslU4IHqLWPr4w8Tnf_Fl0DbLjeMjpJxO1OnWHUFk2F3F3DnCHluTQtLCemckO4QWHFvKMBMqNcU5W9DZEm_jHpFXDbdnOgM_JbPcfijSIthkspJFcjVxY3ZS_Jy7aAvWVONXNy7VxFD7HToXIZGHEcEfaFXRMzkGWzm89CnR18HfO8URJ1iXw5F-ghCWCJGL35U6B7VuU7zHEm71FIlckZU7peaDhdvQWP8Mq3_oxnGi_M4JFCoWnp7FXEsWQJUYu0_Ws"/>
-<button aria-label="Remove from wishlist" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-primary hover:bg-primary hover:text-on-primary transition-colors duration-300">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+    Add to Cart
 </button>
 </div>
-<div class="flex-grow flex flex-col">
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Signature Honeycomb</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">$45.00</p>
-<button class="mt-auto w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full hover:bg-surface-tint transition-colors duration-300">
-                            Add to Cart
-                        </button>
-</div>
 </article>
-<!-- Product Card 3 -->
-<article class="group flex flex-col relative transition-transform duration-500 hover:-translate-y-2">
-<div class="relative w-full aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-6 transition-all duration-500 group-hover:editorial-shadow">
-<img alt="Lavender Infused Honey" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, tall glass bottle of Novala Bee Works Lavender Infused Honey, bathed in serene golden hour light. Subtle sprigs of dried lavender are visible next to the bottle on a soft, textured surface. The scene uses generous whitespace and a warm cream palette to convey a luxurious, calming, and high-end artisanal lifestyle brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAolXntJLete8Xnv5bMSlw-vTJAeV9_9YD325-TdxyPKJb0XFNUp2NttuBAXBw0ZDZcj0kfZuiLeXZlWUvyMNgqyoulYGWdMQ-whhNzAmNUV-WNweuy_npHQXwpwxjJGwcNicHSZqjw4NUst98L46VgiXFNu5v_HYPXec37cNSOmUlK1Q0G9FqrN82GJXZQ4542Qc8DXX4EM8V9JoF-jwxrVvl8l8bTaESI42zUhhWTq96SSKcntr917Zj6o8OQm0Vg-yJEuEI1Oos"/>
-<!-- Badges -->
-<div class="absolute top-4 left-4 flex gap-2">
-<span class="bg-surface-container-highest text-on-surface font-label-md text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Limited</span>
-</div>
-<button aria-label="Remove from wishlist" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-primary hover:bg-primary hover:text-on-primary transition-colors duration-300">
-<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
-</button>
-</div>
-<div class="flex-grow flex flex-col">
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Lavender Infused Nectar</h3>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6">$28.00</p>
-<button class="mt-auto w-full bg-primary text-on-primary font-label-md text-label-md py-4 rounded-full hover:bg-surface-tint transition-colors duration-300">
-                            Add to Cart
-                        </button>
-</div>
-</article>
+<?php
+        endwhile;
+        echo '</div>';
+    else:
+        // Default text if no plugin and no ACF demo data
+        echo '<p class="text-center font-body-lg text-on-surface-variant">Your wishlist is currently empty.</p>';
+    endif;
+}
+?>
 </div>
 </section>
 </main>

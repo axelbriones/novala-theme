@@ -72,48 +72,56 @@ else: ?>
 <p class="font-body-md text-body-md text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('form_subtitle', 'Please provide your details below, and our procurement team will reach out to discuss potential opportunities.', get_the_ID())); ?></p>
 </div>
 <div class="bg-surface rounded-2xl p-8 md:p-12 shadow-sm ring-1 ring-black/5">
-<form class="space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="companyName">Company Name</label>
-<input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="companyName" required="" type="text"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="contactPerson">Contact Person</label>
-<input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="contactPerson" required="" type="text"/>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="email">Email Address</label>
-<input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="email" required="" type="email"/>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="phone">Phone Number</label>
-<input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="phone" type="tel"/>
-</div>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="productCategory">Product Category</label>
-<select class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md appearance-none" id="productCategory">
-<option value="">Select a category</option>
-<option value="raw_honey">Raw Honey</option>
-<option value="beeswax">Beeswax</option>
-<option value="propolis">Propolis &amp; Pollen</option>
-<option value="packaging">Sustainable Packaging</option>
-<option value="other">Other</option>
-</select>
-</div>
-<div>
-<label class="block font-label-md text-label-md text-on-background mb-2" for="message">Tell us about your operation and products</label>
-<textarea class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md resize-none" id="message" required="" rows="5"></textarea>
-</div>
-<div class="pt-4 text-center">
-<button class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary font-label-md text-label-md rounded-full hover:bg-secondary transition-colors shadow-sm" type="submit">
-                                Submit Application
-                            </button>
-</div>
-</form>
+<?php
+    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
+    if (!empty($cf7_shortcode)):
+        echo do_shortcode($cf7_shortcode);
+    else:
+    ?>
+    <!-- Fallback Static Form -->
+    <form class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="companyName">Company Name</label>
+    <input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="companyName" required="" type="text"/>
+    </div>
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="contactPerson">Contact Person</label>
+    <input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="contactPerson" required="" type="text"/>
+    </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="email">Email Address</label>
+    <input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="email" required="" type="email"/>
+    </div>
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="phone">Phone Number</label>
+    <input class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md" id="phone" type="tel"/>
+    </div>
+    </div>
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="productCategory">Product Category</label>
+    <select class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md appearance-none" id="productCategory">
+    <option value="">Select a category</option>
+    <option value="raw_honey">Raw Honey</option>
+    <option value="beeswax">Beeswax</option>
+    <option value="propolis">Propolis &amp; Pollen</option>
+    <option value="packaging">Sustainable Packaging</option>
+    <option value="other">Other</option>
+    </select>
+    </div>
+    <div>
+    <label class="block font-label-md text-label-md text-on-background mb-2" for="message">Tell us about your operation and products</label>
+    <textarea class="w-full bg-on-secondary border border-surface-container-highest rounded-lg px-4 py-3 focus:ring-1 focus:ring-primary focus:border-primary transition-colors text-on-surface font-body-md resize-none" id="message" required="" rows="5"></textarea>
+    </div>
+    <div class="pt-4 text-center">
+    <button class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary font-label-md text-label-md rounded-full hover:bg-secondary transition-colors shadow-sm" type="submit">
+                                    Submit Application
+                                </button>
+    </div>
+    </form>
+    <?php endif; ?>
 </div>
 </div>
 </section>
