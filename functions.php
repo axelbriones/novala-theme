@@ -130,10 +130,14 @@ if (function_exists('acf_add_local_field_group')):
             // 6. SEO & METADATA
             array('key' => 'tab_seo', 'label' => '6. SEO & Metadata', 'type' => 'tab'),
             array('key' => 'field_seo_title_suffix', 'label' => 'Global Title Suffix', 'name' => 'seo_title_suffix', 'type' => 'text'),
+            array('key' => 'field_seo_favicon', 'label' => 'Favicon URL', 'name' => 'seo_favicon', 'type' => 'image', 'return_format' => 'url'),
+            array('key' => 'field_seo_meta_desc', 'label' => 'Global Meta Description', 'name' => 'seo_meta_desc', 'type' => 'textarea'),
 
             // 7. ANALYTICS & TRACKING
             array('key' => 'tab_analytics', 'label' => '7. Analytics & Tracking', 'type' => 'tab'),
             array('key' => 'field_tracking_gtm', 'label' => 'GTM ID', 'name' => 'tracking_gtm', 'type' => 'text'),
+            array('key' => 'field_tracking_fb_pixel', 'label' => 'Facebook Pixel ID', 'name' => 'tracking_fb_pixel', 'type' => 'text'),
+            array('key' => 'field_tracking_ga4', 'label' => 'GA4 Measurement ID', 'name' => 'tracking_ga4', 'type' => 'text'),
 
             // 8. ECOMMERCE SETTINGS
             array('key' => 'tab_ecommerce', 'label' => '8. eCommerce Settings', 'type' => 'tab'),
@@ -157,11 +161,27 @@ if (function_exists('acf_add_local_field_group')):
 
             // 13. EMAIL TEMPLATES
             array('key' => 'tab_emails', 'label' => '13. Email Templates', 'type' => 'tab'),
+            array('key' => 'field_email_branding_logo', 'label' => 'Email Logo', 'name' => 'email_branding_logo', 'type' => 'image', 'return_format' => 'url'),
+            array('key' => 'field_email_primary_color', 'label' => 'Email Base Color', 'name' => 'email_primary_color', 'type' => 'color_picker'),
             array('key' => 'field_email_footer', 'label' => 'Email Footer Text', 'name' => 'email_footer_text', 'type' => 'textarea'),
 
             // 14. GLOBAL REUSABLE CONTENT
             array('key' => 'tab_global', 'label' => '14. Global Content', 'type' => 'tab'),
             array('key' => 'field_global_notice', 'label' => 'Global Notice Banner', 'name' => 'global_notice_banner', 'type' => 'text'),
+            array(
+                'key' => 'tab_legal',
+                'label' => '15. Legal Links',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_legal_privacy', 'label' => 'Privacy Policy Page', 'name' => 'legal_privacy', 'type' => 'post_object', 'post_type' => 'page'),
+            array('key' => 'field_legal_terms', 'label' => 'Terms of Use Page', 'name' => 'legal_terms', 'type' => 'post_object', 'post_type' => 'page'),
+            array(
+                'key' => 'tab_blog',
+                'label' => '16. Blog Settings',
+                'type' => 'tab',
+            ),
+            array('key' => 'field_blog_title', 'label' => 'Blog Title', 'name' => 'blog_title', 'type' => 'text'),
+            array('key' => 'field_blog_subtitle', 'label' => 'Blog Subtitle', 'name' => 'blog_subtitle', 'type' => 'textarea'),
         ),
         'location' => array(
             array(

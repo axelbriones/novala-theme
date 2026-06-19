@@ -9,23 +9,23 @@ get_header();
 <section class="relative w-full h-[614px] md:h-[716px] flex items-center justify-center overflow-hidden bg-tertiary">
 <!-- Background Image -->
 <div class="absolute inset-0 z-0">
-<?php $hero_image = novara_get_field('hero_image', 'https://lh3.googleusercontent.com/aida-public/AB6AXuDv8Gqg1V1xUNhF7DEoq4bM1Ufo3gVp_diGAe_-bOOAndkL_uZIYnZ_BEhOtpfsDDREkphkaLvWiRK5X2ThNQXttutocc6Qu-oyu0G2GTM8xPbxleAkw_4u3eIp7hzsqtt74qtkk3zgDsbLNaQJd1YF9mZOC7oEpNxGrAtpvYX0qoPwDwFqr4AgenuIGufUKXyvGVAeOHc86SWK92FEO9snq1W7QERMeH1dIsZyQIsRQg0rc3p1khC_d_dhUtzdZaUe57hAvfYCPo0', get_the_ID()); ?>
-<img alt="<?php echo esc_attr(novara_get_field('hero_title', 'Become a Stockist', get_the_ID())); ?>" class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="<?php echo esc_url($hero_image); ?>"/>
+<?php $hero_image = novara_get_field('hero_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuDv8Gqg1V1xUNhF7DEoq4bM1Ufo3gVp_diGAe_-bOOAndkL_uZIYnZ_BEhOtpfsDDREkphkaLvWiRK5X2ThNQXttutocc6Qu-oyu0G2GTM8xPbxleAkw_4u3eIp7hzsqtt74qtkk3zgDsbLNaQJd1YF9mZOC7oEpNxGrAtpvYX0qoPwDwFqr4AgenuIGufUKXyvGVAeOHc86SWK92FEO9snq1W7QERMeH1dIsZyQIsRQg0rc3p1khC_d_dhUtzdZaUe57hAvfYCPo0', 'novara'), get_the_ID()); ?>
+<img loading="eager" alt="<?php echo esc_attr(novara_get_field('hero_title', __('Become a Stockist', 'novara'), get_the_ID())); ?>" class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="<?php echo esc_url($hero_image); ?>"/>
 <!-- Overlay gradient for text legibility -->
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/40 to-transparent"></div>
 </div>
 <!-- Hero Content -->
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-3xl mx-auto mt-16 md:mt-0">
 <span class="block font-label-md text-label-md text-primary-fixed mb-4 tracking-widest uppercase opacity-90">Partnerships</span>
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-tertiary mb-6 drop-shadow-md"><?php echo wp_kses_post(novara_get_field('hero_title', 'Become a Stockist', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-surface-variant md:px-12"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'Join our journey of artisanal craftsmanship. Partner with Melliflua to bring the finest, sustainably sourced honey to your community.', get_the_ID())); ?></p>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-tertiary mb-6 drop-shadow-md"><?php echo wp_kses_post(novara_get_field('hero_title', __('Become a Stockist', 'novara'), get_the_ID())); ?></h1>
+<p class="font-body-lg text-body-lg text-surface-variant md:px-12"><?php echo wp_kses_post(novara_get_field('hero_subtitle', __('Join our journey of artisanal craftsmanship. Partner with Melliflua to bring the finest, sustainably sourced honey to your community.', 'novara'), get_the_ID())); ?></p>
 </div>
 </section>
 <!-- Benefits Section (Bento Grid Style) -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative">
 <div class="ambient-glow top-0 right-10"></div>
 <div class="text-center mb-16 relative z-10">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('benefits_title', 'Why Partner With Us?', get_the_ID())); ?></h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('benefits_title', __('Why Partner With Us?', 'novara'), get_the_ID())); ?></h2>
 <div class="w-16 h-[1px] bg-outline-variant mx-auto"></div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-gutter relative z-10">

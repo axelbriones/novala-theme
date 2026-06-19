@@ -7,7 +7,7 @@ get_header();
 <!-- Hero Section -->
 <section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Enrich your menu with Novala products" class="w-full h-full object-cover object-center filter brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3EFtV9CKL38AQ0cK-un41XpI4PsfYkPk01FKhsrH7D0h9wP6K0s2tpb2O_0ez44Ovj1wsUJfYndZBA4YPv4I2HCkj_IZv8G80sdY-YzC-Lkvz3wB-9nPvuFb12nZWdvSLkkkQvSaye26vQcWm0YnKDvMjJBXiDHd63V-h2o26uXbpP8vREuUErhXIf5Q3CDszL0tNp9q-y-iuS2PNZnCECFWXi2bpvgaLZROlqVjl8NxnJZf_K4ROCM7zb-rgK2JJOPT892n_7w"/>
+<img loading="eager" alt="Enrich your menu with Novala products" class="w-full h-full object-cover object-center filter brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3EFtV9CKL38AQ0cK-un41XpI4PsfYkPk01FKhsrH7D0h9wP6K0s2tpb2O_0ez44Ovj1wsUJfYndZBA4YPv4I2HCkj_IZv8G80sdY-YzC-Lkvz3wB-9nPvuFb12nZWdvSLkkkQvSaye26vQcWm0YnKDvMjJBXiDHd63V-h2o26uXbpP8vREuUErhXIf5Q3CDszL0tNp9q-y-iuS2PNZnCECFWXi2bpvgaLZROlqVjl8NxnJZf_K4ROCM7zb-rgK2JJOPT892n_7w"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto mt-20">
@@ -19,7 +19,7 @@ get_header();
                     Awe your customers!
                 </p>
 <div class="mt-10">
-<a class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-8 py-4 rounded hover:bg-primary-container transition-all duration-300 shadow-md hover:shadow-lg" href="#partner-form">
+<a role="link" class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-8 py-4 rounded hover:bg-primary-container transition-all duration-300 shadow-md hover:shadow-lg" href="#partner-form">
                         Become a Partner
                     </a>
 </div>
@@ -28,7 +28,7 @@ get_header();
 <!-- Benefits Section (Bento Layout) -->
 <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
 <div class="text-center mb-16">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('benefits_title', 'Value Added Products', get_the_ID())); ?></h2>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('benefits_title', __('Value Added Products', 'novara'), get_the_ID())); ?></h2>
 <div class="w-16 h-0.5 bg-primary mx-auto"></div>
 </div>
 <div class="bento-grid">
@@ -77,13 +77,13 @@ else: ?>
 <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-fixed/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
 <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
 <div class="text-center mb-12">
-<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('form_title', 'Thank You for Your Interest in Our Products', get_the_ID())); ?></h2>
-<p class="font-body-lg text-body-lg text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('form_subtitle', 'Please complete our Food Service Partner Request, and we will be in touch!', get_the_ID())); ?></p>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4"><?php echo esc_html(novara_get_field('form_title', __('Thank You for Your Interest in Our Products', 'novara'), get_the_ID())); ?></h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant"><?php echo wp_kses_post(novara_get_field('form_subtitle', __('Please complete our Food Service Partner Request, and we will be in touch!', 'novara'), get_the_ID())); ?></p>
 </div>
 <div class="glass-card golden-glow rounded-xl p-8 md:p-12">
     <?php
-    $cf7_shortcode = novara_get_field('cf7_shortcode', '', get_the_ID());
-    if (!empty($cf7_shortcode)):
+    $cf7_shortcode = novara_get_field('cf7_shortcode', __('', 'novara'), get_the_ID());
+    if (!empty($cf7_shortcode) && shortcode_exists('contact-form-7')):
         echo do_shortcode($cf7_shortcode);
     else:
     ?>
@@ -108,7 +108,7 @@ else: ?>
     <textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-4 py-3 font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary transition-colors outline-none resize-y" id="vision" name="vision" rows="4"></textarea>
     </div>
     <div class="pt-4 text-center">
-    <button class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-10 py-4 rounded hover:bg-primary-container transition-all duration-300 w-full md:w-auto shadow-md" type="submit">
+    <button type="button" class="inline-flex items-center justify-center bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider px-10 py-4 rounded hover:bg-primary-container transition-all duration-300 w-full md:w-auto shadow-md" type="submit">
                                 Submit Request
                             </button>
     </div>

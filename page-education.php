@@ -6,13 +6,13 @@ get_header();
 <main class="flex-grow">
 <!-- Hero Section -->
 <section class="relative h-[614px] min-h-[500px] flex items-center justify-center bg-surface-container-low overflow-hidden">
-<?php $hero_bg = novara_get_field('hero_image', 'https://lh3.googleusercontent.com/aida-public/AB6AXuBR569pfaImskGT-NDTYcbL0L5IdmlEVmn8RHQZWjw21O4cA9xJUgvFUaxl17y1u08nvPIo7vgC2wJQIZUZ7p5X4S-T4hqhZ1oqgzQWaB1EGe15NRPol9iNOz8Xrr8n28EACq_u9qt89PJOPbtYt0N72533YvpdiSgExNQaEdDr1ZaVSfP3m6_dI_upJ_CaLCwQO8wbO7U8BusHfcLzRZMy30or7Bqf0b-K8itxqtBXIVyoN2_O11J9eVIEPDalFTRmKowBLE4fpIk', get_the_ID()); ?>
+<?php $hero_bg = novara_get_field('hero_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuBR569pfaImskGT-NDTYcbL0L5IdmlEVmn8RHQZWjw21O4cA9xJUgvFUaxl17y1u08nvPIo7vgC2wJQIZUZ7p5X4S-T4hqhZ1oqgzQWaB1EGe15NRPol9iNOz8Xrr8n28EACq_u9qt89PJOPbtYt0N72533YvpdiSgExNQaEdDr1ZaVSfP3m6_dI_upJ_CaLCwQO8wbO7U8BusHfcLzRZMy30or7Bqf0b-K8itxqtBXIVyoN2_O11J9eVIEPDalFTRmKowBLE4fpIk', 'novara'), get_the_ID()); ?>
 <div class="absolute inset-0 bg-cover bg-center opacity-60" style="background-image: url('<?php echo esc_url($hero_bg); ?>');">
 </div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent"></div>
 <div class="relative z-10 text-center px-margin-desktop max-w-4xl mx-auto mt-20">
-<h1 class="font-display-lg text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', 'Customer Education', get_the_ID())); ?></h1>
-<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"><?php echo wp_kses_post(novara_get_field('hero_subtitle', 'Enrol today in our insightful beekeeping courses. Learn the art of apiculture from our master artisans.', get_the_ID())); ?></p>
+<h1 class="font-display-lg text-display-lg text-primary mb-6"><?php echo wp_kses_post(novara_get_field('hero_title', __('Customer Education', 'novara'), get_the_ID())); ?></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto"><?php echo wp_kses_post(novara_get_field('hero_subtitle', __('Enrol today in our insightful beekeeping courses. Learn the art of apiculture from our master artisans.', 'novara'), get_the_ID())); ?></p>
 </div>
 </section>
 <!-- Course Grid -->
@@ -26,7 +26,7 @@ if (function_exists('have_rows') && have_rows('courses_list', get_the_ID())):
 ?>
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover-lift flex flex-col border border-surface-container-high transition-colors hover:border-outline-variant">
 <div class="h-64 overflow-hidden relative">
-<img alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
+<img loading="lazy" alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
 <div class="absolute top-4 left-4 <?php echo esc_attr($badge_color); ?> px-3 py-1 rounded-full font-label-md text-label-md shadow-sm backdrop-blur-sm">
     <?php echo esc_html($badge); ?>
 </div>
@@ -61,7 +61,7 @@ else: ?>
 <!-- Fallbacks -->
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover-lift flex flex-col border border-surface-container-high transition-colors hover:border-outline-variant">
 <div class="h-64 overflow-hidden relative">
-<img alt="In-person beekeeping training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrQtU_q5FsEFZbHB_6Ov_HXaCr1Wh-9eO62uWcgqjBxfxAOx6uHy-XqcLfc8bzPePCb2U2KJmuRZJ7N1htyouuXIw0NnVWaaAzRRpkNnejdqBHcvPVvYihh8BKyFBI4tiWf6KhdPfH7xQoGVpWRpwZCMBH9TL5IINLqKDxweC5_jEau3q_t9jHD_ZMgXaz50VG6zJWum7amUXX9UIDaNarAQ1RX7hzOB45j_ajhvKSPkOSjpX5A3MIoUfimsaOPhBPIL-imn8SyXE"/>
+<img loading="lazy" alt="In-person beekeeping training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrQtU_q5FsEFZbHB_6Ov_HXaCr1Wh-9eO62uWcgqjBxfxAOx6uHy-XqcLfc8bzPePCb2U2KJmuRZJ7N1htyouuXIw0NnVWaaAzRRpkNnejdqBHcvPVvYihh8BKyFBI4tiWf6KhdPfH7xQoGVpWRpwZCMBH9TL5IINLqKDxweC5_jEau3q_t9jHD_ZMgXaz50VG6zJWum7amUXX9UIDaNarAQ1RX7hzOB45j_ajhvKSPkOSjpX5A3MIoUfimsaOPhBPIL-imn8SyXE"/>
 <div class="absolute top-4 left-4 bg-secondary-fixed/90 text-on-secondary-fixed px-3 py-1 rounded-full font-label-md text-label-md shadow-sm backdrop-blur-sm">
                             In-person
                         </div>
@@ -81,10 +81,10 @@ else: ?>
                             </div>
 </div>
 <div class="flex space-x-4">
-<button class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-3 rounded hover:bg-primary-container transition-colors duration-300">
+<button type="button" class="flex-1 bg-primary text-on-primary font-label-md text-label-md py-3 rounded hover:bg-primary-container transition-colors duration-300">
                                 Inquire
                             </button>
-<button class="flex-1 bg-transparent text-secondary border-[1.5px] border-primary font-label-md text-label-md py-3 rounded hover:bg-surface-container-low transition-colors duration-300">
+<button type="button" class="flex-1 bg-transparent text-secondary border-[1.5px] border-primary font-label-md text-label-md py-3 rounded hover:bg-surface-container-low transition-colors duration-300">
                                 Learn More
                             </button>
 </div>

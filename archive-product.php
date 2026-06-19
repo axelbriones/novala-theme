@@ -4,7 +4,7 @@
         <h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6"><?php woocommerce_page_title(); ?></h1>
     </header>
     <div class="woocommerce-container">
-        <?php woocommerce_content(); ?>
+        <?php if (function_exists('woocommerce_content')) { woocommerce_content(); } else { echo '<p>WooCommerce is not active.</p>'; } ?>
     </div>
 </main>
 <?php get_footer(); ?>
