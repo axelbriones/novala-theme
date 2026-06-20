@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Become a Stockist */
 get_header();
 ?>
@@ -10,7 +11,7 @@ get_header();
 <!-- Background Image -->
 <div class="absolute inset-0 z-0">
 <?php $hero_image = novara_get_field('hero_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuDv8Gqg1V1xUNhF7DEoq4bM1Ufo3gVp_diGAe_-bOOAndkL_uZIYnZ_BEhOtpfsDDREkphkaLvWiRK5X2ThNQXttutocc6Qu-oyu0G2GTM8xPbxleAkw_4u3eIp7hzsqtt74qtkk3zgDsbLNaQJd1YF9mZOC7oEpNxGrAtpvYX0qoPwDwFqr4AgenuIGufUKXyvGVAeOHc86SWK92FEO9snq1W7QERMeH1dIsZyQIsRQg0rc3p1khC_d_dhUtzdZaUe57hAvfYCPo0', 'novara'), get_the_ID()); ?>
-<img loading="eager" alt="<?php echo esc_attr(novara_get_field('hero_title', __('Become a Stockist', 'novara'), get_the_ID())); ?>" class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="<?php echo esc_url($hero_image); ?>"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="<?php echo esc_attr(novara_get_field('hero_title', __('Become a Stockist', 'novara'), get_the_ID())); ?>" class="w-full h-full object-cover opacity-80 mix-blend-overlay" src="<?php echo esc_url($hero_image); ?>"/>
 <!-- Overlay gradient for text legibility -->
 <div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-on-background/40 to-transparent"></div>
 </div>

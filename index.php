@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+get_header(); ?>
 <main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 pt-[88px]">
 <!-- Header -->
 <header class="text-center mb-16">

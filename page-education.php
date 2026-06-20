@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Customer Education */
 get_header();
 ?>
@@ -26,7 +27,7 @@ if (function_exists('have_rows') && have_rows('courses_list', get_the_ID())):
 ?>
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover-lift flex flex-col border border-surface-container-high transition-colors hover:border-outline-variant">
 <div class="h-64 overflow-hidden relative">
-<img loading="lazy" alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
+<img loading="lazy" decoding="async" alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
 <div class="absolute top-4 left-4 <?php echo esc_attr($badge_color); ?> px-3 py-1 rounded-full font-label-md text-label-md shadow-sm backdrop-blur-sm">
     <?php echo esc_html($badge); ?>
 </div>
@@ -61,7 +62,7 @@ else: ?>
 <!-- Fallbacks -->
 <div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover-lift flex flex-col border border-surface-container-high transition-colors hover:border-outline-variant">
 <div class="h-64 overflow-hidden relative">
-<img loading="lazy" alt="In-person beekeeping training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrQtU_q5FsEFZbHB_6Ov_HXaCr1Wh-9eO62uWcgqjBxfxAOx6uHy-XqcLfc8bzPePCb2U2KJmuRZJ7N1htyouuXIw0NnVWaaAzRRpkNnejdqBHcvPVvYihh8BKyFBI4tiWf6KhdPfH7xQoGVpWRpwZCMBH9TL5IINLqKDxweC5_jEau3q_t9jHD_ZMgXaz50VG6zJWum7amUXX9UIDaNarAQ1RX7hzOB45j_ajhvKSPkOSjpX5A3MIoUfimsaOPhBPIL-imn8SyXE"/>
+<img loading="lazy" decoding="async" alt="In-person beekeeping training" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrQtU_q5FsEFZbHB_6Ov_HXaCr1Wh-9eO62uWcgqjBxfxAOx6uHy-XqcLfc8bzPePCb2U2KJmuRZJ7N1htyouuXIw0NnVWaaAzRRpkNnejdqBHcvPVvYihh8BKyFBI4tiWf6KhdPfH7xQoGVpWRpwZCMBH9TL5IINLqKDxweC5_jEau3q_t9jHD_ZMgXaz50VG6zJWum7amUXX9UIDaNarAQ1RX7hzOB45j_ajhvKSPkOSjpX5A3MIoUfimsaOPhBPIL-imn8SyXE"/>
 <div class="absolute top-4 left-4 bg-secondary-fixed/90 text-on-secondary-fixed px-3 py-1 rounded-full font-label-md text-label-md shadow-sm backdrop-blur-sm">
                             In-person
                         </div>

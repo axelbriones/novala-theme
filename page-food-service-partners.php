@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Food Service Partners */
 get_header();
 ?>
@@ -7,7 +8,7 @@ get_header();
 <!-- Hero Section -->
 <section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img loading="eager" alt="Enrich your menu with Novala products" class="w-full h-full object-cover object-center filter brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3EFtV9CKL38AQ0cK-un41XpI4PsfYkPk01FKhsrH7D0h9wP6K0s2tpb2O_0ez44Ovj1wsUJfYndZBA4YPv4I2HCkj_IZv8G80sdY-YzC-Lkvz3wB-9nPvuFb12nZWdvSLkkkQvSaye26vQcWm0YnKDvMjJBXiDHd63V-h2o26uXbpP8vREuUErhXIf5Q3CDszL0tNp9q-y-iuS2PNZnCECFWXi2bpvgaLZROlqVjl8NxnJZf_K4ROCM7zb-rgK2JJOPT892n_7w"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="Enrich your menu with Novala products" class="w-full h-full object-cover object-center filter brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl3EFtV9CKL38AQ0cK-un41XpI4PsfYkPk01FKhsrH7D0h9wP6K0s2tpb2O_0ez44Ovj1wsUJfYndZBA4YPv4I2HCkj_IZv8G80sdY-YzC-Lkvz3wB-9nPvuFb12nZWdvSLkkkQvSaye26vQcWm0YnKDvMjJBXiDHd63V-h2o26uXbpP8vREuUErhXIf5Q3CDszL0tNp9q-y-iuS2PNZnCECFWXi2bpvgaLZROlqVjl8NxnJZf_K4ROCM7zb-rgK2JJOPT892n_7w"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto mt-20">

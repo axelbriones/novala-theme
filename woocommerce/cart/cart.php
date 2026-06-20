@@ -6,7 +6,8 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
 <!-- Cart Items (Dynamic) -->
 <div class="lg:col-span-8 flex flex-col gap-8">
-    <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+    <form class="woocommerce-cart-form" action="<?php
+echo esc_url( wc_get_cart_url() ); ?>" method="post">
         <?php do_action( 'woocommerce_before_cart_table' ); ?>
 
         <?php

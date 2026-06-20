@@ -1,7 +1,8 @@
 <footer class="bg-tertiary-fixed dark:bg-tertiary-fixed-variant">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-20 max-w-container-max mx-auto">
 <div class="flex flex-col gap-6">
-<span class="font-headline-sm text-headline-sm font-bold text-on-tertiary-fixed"><?php echo esc_html(novara_get_option('brand_name', 'NOVALA Bee Works')); ?></span>
+<span class="font-headline-sm text-headline-sm font-bold text-on-tertiary-fixed"><?php
+echo esc_html(novara_get_option('brand_name', 'NOVALA Bee Works')); ?></span>
 <p class="text-on-tertiary-fixed-variant font-body-md leading-relaxed">
                     <?php echo esc_html(novara_get_option('footer_text', "Crafting nature's finest honey while preserving the beauty and biodiversity of the African savannah.")); ?>
                 </p>

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Contact Us */
 get_header();
 ?>
@@ -52,7 +53,7 @@ else: ?>
 </div>
 <div class="rounded-xl overflow-hidden shadow-sm aspect-square lg:aspect-[1.11] relative bg-surface-container">
 <?php $map_img = novara_get_field('map_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuAmdm3Vv6uWGKMSyzjh1pwDA1IGNVMEK0XunQfW4uGwKyADvHQHdDV-G93ImxS9Jdf9Drb4eYjaql7FVtkPizMQ8B-RSoTJO6C0jrH7KqlGb1IZwpejPnfiSGFXsEEbd1fBALYt4Q-QksN3GCLZtJjb5BL64fCoGf-xFVIN_Tn9mXxsdPTppPMaRSZDk42fm8duyFkD6huyEFrusuFXF9yRrILA89Key2DoTcIVXpEfz0E9Sk68LgaPiErodVL-WMr9E6STcbx-6JE', 'novara'), get_the_ID()); ?>
-<img loading="lazy" alt="Location Map" class="w-full h-full object-cover" src="<?php echo esc_url($map_img); ?>"/>
+<img loading="lazy" decoding="async" alt="Location Map" class="w-full h-full object-cover" src="<?php echo esc_url($map_img); ?>"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-outline-variant/20 rounded-xl pointer-events-none"></div>
 </div>
 </div>

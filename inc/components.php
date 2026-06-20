@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Component Rendering Engine
  * Handles the rendering of reusable ACF components.

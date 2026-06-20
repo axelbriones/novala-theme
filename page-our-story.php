@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Our Story */
 get_header();
 ?>
@@ -7,7 +8,7 @@ get_header();
 <!-- Hero Section -->
 <header class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center mt-24">
 <div class="absolute inset-0 z-0">
-<img loading="eager" alt="Beekeepers tending to traditional woven hives in a tall grass savanna during a breathtaking golden hour sunset, capturing the artisanal essence and raw nature of organic honey harvesting." class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZ7_QnFjAQAPQ7wn1MFVoOJ_XYV8Vin2qS_c5zW_zaobfJFqS59oCnaVjTlfn_9cpbHxHksdbFpP_NwvbLY28aEMhhmor6CvVWbiZ4v8x3bUwYsr2KIpGA1Waq6_r63FO8HQW5028f69zkPA-3KKfv1WNn67duQiwicGx-SvzywRKlgNMczlzavQrBuHsZt94bdBvuRr6E54b22hyosAdZeBOWva34-NZz1nF0XaH5XW3xlxB0Ttp3n12b1xFGeVD_ZAbvQiLJAE"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="Beekeepers tending to traditional woven hives in a tall grass savanna during a breathtaking golden hour sunset, capturing the artisanal essence and raw nature of organic honey harvesting." class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfZ7_QnFjAQAPQ7wn1MFVoOJ_XYV8Vin2qS_c5zW_zaobfJFqS59oCnaVjTlfn_9cpbHxHksdbFpP_NwvbLY28aEMhhmor6CvVWbiZ4v8x3bUwYsr2KIpGA1Waq6_r63FO8HQW5028f69zkPA-3KKfv1WNn67duQiwicGx-SvzywRKlgNMczlzavQrBuHsZt94bdBvuRr6E54b22hyosAdZeBOWva34-NZz1nF0XaH5XW3xlxB0Ttp3n12b1xFGeVD_ZAbvQiLJAE"/>
 <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/30 mix-blend-multiply"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto">

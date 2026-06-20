@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Influencer Program */
 get_header();
 ?>
@@ -8,7 +9,7 @@ get_header();
 <!-- Hero Section -->
 <section class="relative w-full min-h-[716px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0 bg-surface-container-low">
-<img loading="eager" alt="Hero Background" class="w-full h-full object-cover object-center opacity-80 mix-blend-multiply" data-alt="A warm, sun-drenched lifestyle photograph set during golden hour. The image features a rustic outdoor table set with a jar of golden, glowing honey, a wooden honey dipper, and fresh wildflowers. Sunlight streams through leaves, creating soft, dappled shadows across the scene. The aesthetic is Artisanal Modernism—high-end, serene, and deeply connected to nature, utilizing a palette of deep amber and warm cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIdIzbarNIlYWQ98YvXD0qoVqXPgdiUhd_HZmj0UKmcJuhkLQ3pw-h8-vucFHel7NnkjRZJkwA2b0jSonzygfu36fCRS3WZSHU60DOwFhlRLUirumxaAmY6j7iq37OH4y2QHTpm8pmD3DRbl0gsdnpqZNV-yuvhON9lQP1xsqSFjyIdJKM8apCQ2TK5PuaTQksDfLd3PYBNDQFh9a6Fe3HjyH_OwQMV4tVeXWTa1hMKidxOqxAdpGqztqsoBYLf-NJD7CJf5mSJNc"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="Hero Background" class="w-full h-full object-cover object-center opacity-80 mix-blend-multiply" data-alt="A warm, sun-drenched lifestyle photograph set during golden hour. The image features a rustic outdoor table set with a jar of golden, glowing honey, a wooden honey dipper, and fresh wildflowers. Sunlight streams through leaves, creating soft, dappled shadows across the scene. The aesthetic is Artisanal Modernism—high-end, serene, and deeply connected to nature, utilizing a palette of deep amber and warm cream tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIdIzbarNIlYWQ98YvXD0qoVqXPgdiUhd_HZmj0UKmcJuhkLQ3pw-h8-vucFHel7NnkjRZJkwA2b0jSonzygfu36fCRS3WZSHU60DOwFhlRLUirumxaAmY6j7iq37OH4y2QHTpm8pmD3DRbl0gsdnpqZNV-yuvhON9lQP1xsqSFjyIdJKM8apCQ2TK5PuaTQksDfLd3PYBNDQFh9a6Fe3HjyH_OwQMV4tVeXWTa1hMKidxOqxAdpGqztqsoBYLf-NJD7CJf5mSJNc"/>
 <!-- Warm Gradient Overlay to ensure text readability while maintaining golden hour vibe -->
 <div class="absolute inset-0 bg-gradient-to-t from-background via-surface/60 to-transparent"></div>
 </div>

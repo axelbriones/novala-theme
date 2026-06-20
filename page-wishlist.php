@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Wishlist */
 get_header();
 ?>
@@ -32,7 +33,7 @@ if (shortcode_exists('yith_wcwl_wishlist')) {
 ?>
 <article class="group flex flex-col relative transition-transform duration-500 hover:-translate-y-2">
 <div class="relative w-full aspect-[4/5] bg-surface-container-low rounded-xl overflow-hidden mb-6 transition-all duration-500 group-hover:editorial-shadow">
-<img loading="lazy" alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
+<img loading="lazy" decoding="async" alt="<?php echo esc_attr(novara_get_sub_field('title')); ?>" class="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105" src="<?php echo esc_url(novara_get_sub_field('image')); ?>"/>
 <?php if ($badge = novara_get_sub_field('badge')): ?>
 <div class="absolute top-4 left-4 flex gap-2">
 <span class="bg-secondary-container text-on-secondary-container font-label-md text-[10px] uppercase tracking-wider px-3 py-1 rounded-full"><?php echo esc_html($badge); ?></span>

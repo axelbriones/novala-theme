@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Contract Bee Farmer */
 get_header();
 ?>
@@ -6,7 +7,7 @@ get_header();
 <!-- Hero Section -->
 <header class="relative w-full min-h-[80vh] flex items-center pt-20 pb-32">
 <div class="absolute inset-0 z-0">
-<img loading="eager" alt="Sunset view of bee boxes lined up on a rocky landscape with beekeepers tending to them in the distance." class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuhS2pB4wCKonB8owglyOqTCPaF6laShZBeF1-EnLVyXJe49UCqSUKZMj-MKbodFQKuV76cwakAFtOOALQN_IukO_V6uDxR6JE-1u221lEPcZNToiGjASiD4nC9HYo2tW35Z1aww1XxnqFH1jqnnKRkw3JkJEtkmh9BzAvbsAgyfF0TcEylUfWLkEENuGINXXHYZaZ9nNuN-YAfrTrHvQ5S2DsE9NfQ0Uda0UoAaZef9iNijNKSOWewz4-7eiSrD_WbFhG6xB3nE"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="Sunset view of bee boxes lined up on a rocky landscape with beekeepers tending to them in the distance." class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpuhS2pB4wCKonB8owglyOqTCPaF6laShZBeF1-EnLVyXJe49UCqSUKZMj-MKbodFQKuV76cwakAFtOOALQN_IukO_V6uDxR6JE-1u221lEPcZNToiGjASiD4nC9HYo2tW35Z1aww1XxnqFH1jqnnKRkw3JkJEtkmh9BzAvbsAgyfF0TcEylUfWLkEENuGINXXHYZaZ9nNuN-YAfrTrHvQ5S2DsE9NfQ0Uda0UoAaZef9iNijNKSOWewz4-7eiSrD_WbFhG6xB3nE"/>
 <div class="absolute inset-0 bg-gradient-to-r from-on-background/80 via-on-background/50 to-transparent"></div>
 </div>
 <div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">

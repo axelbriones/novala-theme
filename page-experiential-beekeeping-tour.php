@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Experiential Beekeeping Tour */
 get_header();
 ?>
@@ -7,7 +8,7 @@ get_header();
 <!-- Hero Section -->
 <section class="relative w-full h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 w-full h-full">
-<img loading="eager" alt="Experiential Beekeeping Tour" class="w-full h-full object-cover object-center brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASQPpw1Jw4HewJcZt_1f_r5RTC1DFlLK8FiLzhNtArejiyZq295qCRLgOlkdHIQymPyiSuluZ7whul660xSMh9ffF_zAEAeWHDG0SXzZ_n7Er45kGQAh8JZO8C1reo6QlsHMF0Yf42t8Ofdkpm1uknJet3LZKZHHPzMNnw8SkGX9TDPkSLf4y7c38Xwx_70R-TJXf_P67QHb6C8j3vxqU7Bjh0Aqm3XADib_iltOa-0dlVrxTnGxOu-YgneYo9HfoO8XF7DWi6QYA"/>
+<img loading="eager" fetchpriority="high" decoding="sync" alt="Experiential Beekeeping Tour" class="w-full h-full object-cover object-center brightness-[0.85]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASQPpw1Jw4HewJcZt_1f_r5RTC1DFlLK8FiLzhNtArejiyZq295qCRLgOlkdHIQymPyiSuluZ7whul660xSMh9ffF_zAEAeWHDG0SXzZ_n7Er45kGQAh8JZO8C1reo6QlsHMF0Yf42t8Ofdkpm1uknJet3LZKZHHPzMNnw8SkGX9TDPkSLf4y7c38Xwx_70R-TJXf_P67QHb6C8j3vxqU7Bjh0Aqm3XADib_iltOa-0dlVrxTnGxOu-YgneYo9HfoO8XF7DWi6QYA"/>
 <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent"></div>
 </div>
 <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto mt-20">
@@ -21,7 +22,7 @@ get_header();
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
 <div class="col-span-1 md:col-span-5 order-2 md:order-1 relative">
 <div class="aspect-[4/5] rounded-lg overflow-hidden ambient-shadow">
-<img loading="lazy" alt="Close up of artisanal beekeeper gently inspecting a golden honey comb frame. The scene is bathed in warm, dappled sunlight filtering through green leaves, highlighting the intricate hexagonal wax structure and the calm, steady hands of the steward. High editorial quality, warm amber tones." class="w-full h-full object-cover" data-alt="Close up of artisanal beekeeper gently inspecting a golden honey comb frame. The scene is bathed in warm, dappled sunlight filtering through green leaves, highlighting the intricate hexagonal wax structure and the calm, steady hands of the steward. High editorial quality, warm amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClMdUNr9jymRRXgWyOfmrATL1-UIMCMOOyfcVWrRveRsBbj4AwDCs-MM6TwLeaAIERITCcqk2kyHmZ7-K68wb_cVdVljv06rvZDWSmV_38nyPtO-ACMVToGuVensRaOpP44DxU1mVyDsKFM4DNRtvuFM_5xR1DrBsPX_hSFGZxGsLTka8mrYf4hEO9KnUyHNEl9_9BLNRXBWbMwxA321QXzY1SHRLmQUcwysVfltDqOnXpIRCOUFYDobtcxX0gOWZIkNNikg6e4xs"/>
+<img loading="lazy" decoding="async" alt="Close up of artisanal beekeeper gently inspecting a golden honey comb frame. The scene is bathed in warm, dappled sunlight filtering through green leaves, highlighting the intricate hexagonal wax structure and the calm, steady hands of the steward. High editorial quality, warm amber tones." class="w-full h-full object-cover" data-alt="Close up of artisanal beekeeper gently inspecting a golden honey comb frame. The scene is bathed in warm, dappled sunlight filtering through green leaves, highlighting the intricate hexagonal wax structure and the calm, steady hands of the steward. High editorial quality, warm amber tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClMdUNr9jymRRXgWyOfmrATL1-UIMCMOOyfcVWrRveRsBbj4AwDCs-MM6TwLeaAIERITCcqk2kyHmZ7-K68wb_cVdVljv06rvZDWSmV_38nyPtO-ACMVToGuVensRaOpP44DxU1mVyDsKFM4DNRtvuFM_5xR1DrBsPX_hSFGZxGsLTka8mrYf4hEO9KnUyHNEl9_9BLNRXBWbMwxA321QXzY1SHRLmQUcwysVfltDqOnXpIRCOUFYDobtcxX0gOWZIkNNikg6e4xs"/>
 </div>
 </div>
 <div class="col-span-1 md:col-span-6 md:col-start-7 order-1 md:order-2 mb-10 md:mb-0">
@@ -102,7 +103,7 @@ else: ?>
 </ul>
 <div class="bg-surface p-6 rounded border border-secondary-fixed-dim/30">
 <h4 class="font-headline-sm text-headline-sm text-primary mb-2 text-lg"><?php echo esc_html(novara_get_field('rental_title', __('Equipment Rental', 'novara'), get_the_ID())); ?></h4>
-<p class="font-body-md text-body-md text-on-surface-variant text-sm"><?php echo wp_kses_post(novara_get_field('rental_text', __('Don\', 'novara')t have your own gear? We offer premium, freshly laundered satin bee suits for rent at KES 500 per session.', get_the_ID())); ?></p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm"><?php echo wp_kses_post(novara_get_field('rental_text', __('Don\'t have your own gear? We offer premium, freshly laundered satin bee suits for rent at KES 500 per session.', 'novara'), get_the_ID())); ?></p>
 </div>
 </div>
 </div>

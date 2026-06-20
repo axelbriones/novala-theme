@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Become a Supplier */
 get_header();
 ?>
@@ -59,7 +60,7 @@ else: ?>
 </div>
 <div class="order-1 md:order-2 rounded-2xl overflow-hidden shadow-sm bg-surface-container-low aspect-square relative">
 <?php $vp_image = novara_get_field('vp_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuCWdMkVRb86LPINMYYoFZWoHf7ZYUzglJP1AFX4-NV7-nYYW9zEENHw7tDtV7ihvufXOEZfeJ-t-t6VGGiBchBzpPtPe4S5pkXJiLO6T0XPStpgNJo0zmdly66JP_Rqnu0vPclmgV7v8gbvQZYH2v7Y1vRYOC_7CmzqCko5ZL4ZQ9pdGkkpgbg0p0mXwGVr6I-sm9h5NnclkJauJqCjtOxFZlpCGHxOQBEBwvIuFCZWFJlnf5tz7Rr7O9otGFQq51Vg1JtHe4Ndo3c', 'novara'), get_the_ID()); ?>
-<img loading="lazy" alt="Beekeeper inspecting a hive frame" class="w-full h-full object-cover" src="<?php echo esc_url($vp_image); ?>"/>
+<img loading="lazy" decoding="async" alt="Beekeeper inspecting a hive frame" class="w-full h-full object-cover" src="<?php echo esc_url($vp_image); ?>"/>
 <div class="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-2xl"></div>
 </div>
 </div>

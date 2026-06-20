@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Sustainability */
 get_header();
 ?>
@@ -8,7 +9,7 @@ get_header();
 <section class="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center pt-20">
 <div class="absolute inset-0 w-full h-full">
 <?php $hero_image = novara_get_field('hero_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuBbw0znFa5tivs87Us9wZm_oFwtBRvy3AuNFVLxOIpmzAdBbmCYyHdEInGZ8U9n8-inWiF0ONlx7fKAzkqK0VnxQF75Dkq1CZeCZNPN2TYR6RfCo8dfumrley5-HMwBdYh8lJ32vSU25RpwCG-HKWP8OBsC_T-H0BSjnmSzlem5tYMNJfJQMaucb2IjPOZ6_E0rvuDdl5nI65tcB4n1BrZI-cVJeGoeaV5rhx02t2TfCnEt0AhahlnoAKXvRwgWMpMKjtBbyEvMyAk', 'novara'), get_the_ID()); ?>
-<img loading="eager" class="w-full h-full object-cover" src="<?php echo esc_url($hero_image); ?>"/>
+<img loading="eager" fetchpriority="high" decoding="sync" class="w-full h-full object-cover" src="<?php echo esc_url($hero_image); ?>"/>
 <div class="absolute inset-0 hero-gradient"></div>
 </div>
 <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center mt-12">
@@ -37,7 +38,7 @@ get_header();
 <div class="md:col-span-6 md:col-start-7 order-1 md:order-2">
 <div class="rounded-xl overflow-hidden shadow-lg shadow-surface-tint/5 aspect-[4/5] md:aspect-auto h-full">
 <?php $refo_img = novara_get_field('refo_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuAep_GXg7Bdux_7H1JP1NtDAdqVZtrOSxC8pFE1gkEfCxrOq9toN7JSzE1zCNysNWzm13KfkP5-Re9W4ZwLNrIuDw2758Cp9Ln8fMihGKnLARnLirlOWGFPkTJKjNUGRZop2nifqx9AIR8a7yOoEjnkQYcIso-OMGBfE5wu_uPAsUbY1A8yIU_ERLX08GYBJTr_YgrWT_QfMHThGz5oUBmm6VrkWBvE8yRXabE3DwJh_B7ZD9lpOvOH2jlsVIRA5_dIYsVGenNVFlc', 'novara'), get_the_ID()); ?>
-<img loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out" src="<?php echo esc_url($refo_img); ?>"/>
+<img loading="lazy" decoding="async" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out" src="<?php echo esc_url($refo_img); ?>"/>
 </div>
 </div>
 </div>
@@ -57,7 +58,7 @@ get_header();
 <div class="md:col-span-7">
 <div class="rounded-xl overflow-hidden shadow-lg shadow-surface-tint/5 aspect-video md:aspect-[16/10]">
 <?php $welfare_img = novara_get_field('welfare_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuBeJgQYYgkYHZi5hvIXFOW3WuLegvuKromwiPjcYDa-gG6cZIqXnbx6F9rZ1pUSBmdSCv6J8g6jwMLo05ttfqVPngkO8F5_x_gmj5JEtsnl19C087zgN1aQkLn_TUU9062d8KLHq3OcCxQKCsoVB9qJ7D6mFLDB8Y0QFgINCtdZ_yDYbYrokUl39ILo_F4mifftnXHX3r-CzUve27nY1Ufyh9E14WnH17Jj_RCzEebsOrSTZ5MtMoksuMqORztON_p7uzh7nnclYLI', 'novara'), get_the_ID()); ?>
-<img loading="lazy" class="w-full h-full object-cover" src="<?php echo esc_url($welfare_img); ?>"/>
+<img loading="lazy" decoding="async" class="w-full h-full object-cover" src="<?php echo esc_url($welfare_img); ?>"/>
 </div>
 </div>
 <div class="md:col-span-4 md:col-start-9 space-y-6 mt-12 md:mt-0">

@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 // Extracted component variables with fallbacks to preserve exact visual structure
 $image_url = isset($image) && !empty($image) ? $image : 'https://lh3.googleusercontent.com/aida-public/AB6AXuDPUDgUvyVTIbcGloDNmOwpqzKgIg2HAiU74ewjq9TVdzu6EO2u08QQ4BrIlFt0sPc0JCdH3oH8UnCQfHLaQAsmMgLbuwnRDDFAVOch5Xc6y-2ao_zIXYwb2LljVccTx6tYlUxkf9EeJuNXQ8jstugX700dIaRsvhsA-xbl_B7_GJEV1ws9yLfcB5sFP2oKSu2waaayK7PdmKx6cgGsGY5FJ7y0NbQ-gN4OeNSon5R8fzHzn2pEOnKqUHvU25LLKEH5nWccKIix0tk';
 $hero_title = isset($title) && !empty($title) ? $title : 'Pure Honey, Sustainably Sourced.';

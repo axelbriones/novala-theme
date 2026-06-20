@@ -3,7 +3,8 @@
     <aside class="w-full md:w-64 flex-shrink-0 mb-8 md:mb-0">
         <div class="sticky top-32">
             <h2 class="font-headline-sm text-headline-sm text-primary mb-6">My Account</h2>
-            <?php do_action( 'woocommerce_account_navigation' ); ?>
+            <?php
+do_action( 'woocommerce_account_navigation' ); ?>
         </div>
     </aside>
     <section class="flex-grow">

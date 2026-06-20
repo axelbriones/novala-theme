@@ -1,4 +1,6 @@
-<?php get_header(); ?>
+<?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+get_header(); ?>
 <main class="flex-grow w-full max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop py-12 pt-[88px]">
 <?php while (have_posts()) : the_post(); ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

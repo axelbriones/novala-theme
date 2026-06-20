@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /* Template Name: Open Innovation */
 get_header();
 ?>
@@ -9,7 +10,7 @@ get_header();
 <section class="relative w-full h-[614px] min-h-[500px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0 bg-black/30"></div>
 <?php $hero_image = novara_get_field('hero_image', __('https://lh3.googleusercontent.com/aida-public/AB6AXuBCLlxVyqYmQXQ1R4FxrdKHtY93Q6mLJOCFWIz6jn2jfMtvt7tK-2ebPY6eWjrPkLR_6L-BjGIJHnsI-C6pFR7JJkQQpzm5XZ3ATBcX9zMK-_8HDkaqiU90YznG5DBJEsqhzyHfbj9uuk3vGDGtFem4w0qFeC4rOhdNIWR72GJGurWE8ANgTcaO_RVLtRYh-2Gk8oeAc6QtQxNOsekgQepx0BZcmZ64KO2jzwQNhAR5K946b97-XTDeWZGu0Eriy2LdqfK6emyfcR4', 'novara'), get_the_ID()); ?>
-<img loading="eager" class="absolute inset-0 w-full h-full object-cover z-[-1]" src="<?php echo esc_url($hero_image); ?>"/>
+<img loading="eager" fetchpriority="high" decoding="sync" class="absolute inset-0 w-full h-full object-cover z-[-1]" src="<?php echo esc_url($hero_image); ?>"/>
 <div class="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center gap-6">
 <h1 class="font-display-lg text-display-lg text-on-primary md:font-display-lg-mobile md:text-display-lg-mobile"><?php echo wp_kses_post(novara_get_field('hero_title', __('Open Innovation', 'novara'), get_the_ID())); ?></h1>
 <p class="font-body-lg text-body-lg text-on-primary/90 max-w-2xl font-light"><?php echo wp_kses_post(novara_get_field('hero_subtitle', __('Do you want to share an innovative idea with us?', 'novara'), get_the_ID())); ?></p>
@@ -22,7 +23,7 @@ get_header();
 <div class="w-12 h-1 bg-secondary rounded-full"></div>
 <h2 class="font-headline-md text-headline-md text-on-surface"><?php echo esc_html(novara_get_field('intro_title', __('Collaborate with nature.', 'novara'), get_the_ID())); ?></h2>
 <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
-    <?php echo wp_kses_post(novara_get_field('intro_text', __('We love teaming up with creative individuals and businesses to craft products and processes that bring joy to our customers. Whether it\', 'novara')s a new sustainable packaging solution, a unique honey infusion, or an advancement in apiary care, your ideas matter to the hive.', get_the_ID())); ?>
+    <?php echo wp_kses_post(novara_get_field('intro_text', __('We love teaming up with creative individuals and businesses to craft products and processes that bring joy to our customers. Whether it\'s a new sustainable packaging solution, a unique honey infusion, or an advancement in apiary care, your ideas matter to the hive.', 'novara'), get_the_ID())); ?>
 </p>
 <div class="mt-8 p-8 bg-surface-container-low rounded-2xl border border-outline-variant/30 relative overflow-hidden group">
 <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>

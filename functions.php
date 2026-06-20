@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 defined('ABSPATH') || exit;
 
 define('NOVARA_VERSION', '1.0.0');
@@ -27,6 +27,7 @@ function novara_wc_checkout_fields_styling( $fields ) {
         }
     }
     return $fields;
+}
 }
 add_filter( 'woocommerce_checkout_fields', 'novara_wc_checkout_fields_styling', 9999 );
 
@@ -74,16 +75,20 @@ if (function_exists('acf_add_options_page')) {
 }
 
 // Ensure ACF JSON saves to a directory in our theme
+if (!function_exists('novara_acf_json_save_point')) {
 function novara_acf_json_save_point($path) {
     $path = get_stylesheet_directory() . '/acf-json';
     return $path;
 }
+}
 add_filter('acf/settings/save_json', 'novara_acf_json_save_point');
 
+if (!function_exists('novara_acf_json_load_point')) {
 function novara_acf_json_load_point($paths) {
     unset($paths[0]);
     $paths[] = get_stylesheet_directory() . '/acf-json';
     return $paths;
+}
 }
 add_filter('acf/settings/load_json', 'novara_acf_json_load_point');
 
@@ -1275,10 +1280,12 @@ if (function_exists('acf_add_local_field_group')):
 endif;
 
 // Enqueue styles and scripts
+if (!function_exists('novara_enqueue_assets')) {
 function novara_enqueue_assets() {
     wp_enqueue_style('novara-tailwind', get_template_directory_uri() . '/assets/css/app.min.css', array(), '1.0.0');
     wp_enqueue_style('novara-custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0.0');
     wp_enqueue_style('novara-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), '1.0.0');
     wp_enqueue_style('google-material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap', array(), null);
             }
+}
 add_action('wp_enqueue_scripts', 'novara_enqueue_assets');

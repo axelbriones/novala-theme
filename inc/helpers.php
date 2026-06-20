@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 /**
  * Helper Functions
  */
@@ -15,6 +16,7 @@ if (!defined('ABSPATH')) {
  * @param string $post_id Post ID or 'option'.
  * @return mixed
  */
+if (!function_exists('novara_get_field')) {
 function novara_get_field($field, $fallback = '', $post_id = false) {
     if (function_exists('get_field')) {
         $val = get_field($field, $post_id);
@@ -24,6 +26,7 @@ function novara_get_field($field, $fallback = '', $post_id = false) {
     }
     return $fallback;
 }
+}
 
 /**
  * Get Global Theme Option (ACF Options Page)
@@ -32,6 +35,7 @@ function novara_get_field($field, $fallback = '', $post_id = false) {
  * @param mixed $default Fallback value if empty or ACF is missing.
  * @return mixed
  */
+if (!function_exists('novara_get_option')) {
 function novara_get_option($key, $default = '') {
     if (function_exists('get_field')) {
         $val = get_field($key, 'option');
@@ -41,10 +45,12 @@ function novara_get_option($key, $default = '') {
     }
     return $default;
 }
+}
 
 /**
  * Get ACF Sub Field with Fallback (for inside loops)
  */
+if (!function_exists('novara_get_sub_field')) {
 function novara_get_sub_field($field, $fallback = '') {
     if (function_exists('get_sub_field')) {
         $val = get_sub_field($field);
@@ -53,4 +59,5 @@ function novara_get_sub_field($field, $fallback = '') {
         }
     }
     return $fallback;
+}
 }
