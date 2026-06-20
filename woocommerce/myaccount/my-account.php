@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 <!-- Main Layout -->
 <main class="flex-grow flex flex-col md:flex-row max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-10 gap-gutter">
     <aside class="w-full md:w-64 flex-shrink-0 mb-8 md:mb-0">

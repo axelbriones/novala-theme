@@ -28,7 +28,6 @@ function novara_wc_checkout_fields_styling( $fields ) {
     }
     return $fields;
 }
-}
 add_filter( 'woocommerce_checkout_fields', 'novara_wc_checkout_fields_styling', 9999 );
 
 function novara_theme_setup() {

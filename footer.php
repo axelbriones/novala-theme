@@ -1,3 +1,4 @@
+<?php if ( ! defined( 'ABSPATH' ) ) { exit; } ?>
 <footer class="bg-tertiary-fixed dark:bg-tertiary-fixed-variant">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-20 max-w-container-max mx-auto">
 <div class="flex flex-col gap-6">
